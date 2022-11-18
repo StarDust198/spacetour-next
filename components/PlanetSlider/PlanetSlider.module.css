@@ -1,0 +1,39 @@
+.planetSlider {
+	display: flex;
+	gap: 1.625rem;
+	justify-content: center;
+}
+
+.planet {
+	padding-bottom: 0.5rem;
+	border-bottom: 3px solid transparent;
+}
+
+.planet.active {
+	border-bottom: 3px solid hsl(var(--clr-white));
+}
+
+.planet.active div {
+	color: hsl(var(--clr-white));
+}
+
+.planet:hover:not(.active) {
+	cursor: pointer;
+	border-bottom: 3px solid hsl(var(--clr-light));
+}
+
+@media (min-width: 640px) {
+	.planetSlider {
+		gap: 2.25rem;
+	}
+
+	.planet {
+		padding-bottom: 0.75rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.planetSlider {
+		justify-content: start;
+	}
+}

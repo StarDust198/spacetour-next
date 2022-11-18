@@ -1,6 +1,14 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Divider, Heading, NavText, P, Subheading } from '../components';
+import {
+  Divider,
+  Heading,
+  HomeButton,
+  NavText,
+  P,
+  PlanetSlider,
+  Subheading,
+} from '../components';
 
 const Home: NextPage = () => {
   return (
@@ -31,6 +39,8 @@ const Home: NextPage = () => {
         harum deserunt ipsa tempora nobis voluptatibus in placeat fugiat.
         Adipisci ad asperiores quod numquam mollitia non harum. Soluta, commodi!
       </P>
+      <HomeButton />
+      <PlanetSlider />
     </div>
   );
 };
