@@ -1,0 +1,21 @@
+.p {
+	font-size: 0.9375rem;
+	line-height: 1.4;
+	color: hsl(var(--clr-light) );
+	text-align: center;
+	font-family: var(--ff-sans-normal);
+}
+
+@media (min-width: 640px) {
+	.p {
+		font-size: 1rem;
+		line-height: 1.75;
+	}
+}
+
+@media (min-width: 1024px) {
+	.p {
+		font-size: 1.125rem;
+		text-align: left;
+	}
+}
