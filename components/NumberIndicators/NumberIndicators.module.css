@@ -1,0 +1,48 @@
+.numList {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+}
+
+.numButton {
+	color: hsl(var(--clr-white));
+	font-size: 1rem;
+	line-height: 1.125;
+	width: 2.5rem;
+	height: 2.5rem;
+	border: 1px solid hsl(var(--clr-white) / 0.25);
+	background: none;
+	border-radius: 50%;
+}
+
+.numButton[aria-selected="true"] {
+	background: hsl(var(--clr-white));
+	color: hsl(var(--clr-dark));
+}
+
+.numButton:hover:not([aria-selected="true"]) {
+	cursor: pointer;
+	border-color: hsl(var(--clr-white) / 0.5);
+}
+
+@media (min-width: 640px) {
+	.numButton {
+		width: 3.75rem;
+		height: 3.75rem;
+		font-size: 1.5rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.numList {
+		justify-content: start;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.numButton {
+		width: 5rem;
+		height: 5rem;
+		font-size: 2rem;
+	}
+}

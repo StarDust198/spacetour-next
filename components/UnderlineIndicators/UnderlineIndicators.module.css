@@ -1,39 +1,43 @@
-.planetSlider {
+.underlineList {
 	display: flex;
 	gap: 1.625rem;
 	justify-content: center;
 }
 
-.planet {
+.underlineButton {
+	padding: 0;
 	padding-bottom: 0.5rem;
+	border: none;
 	border-bottom: 3px solid transparent;
+	background: none;
+
 }
 
-.planet.active {
+.underlineButton[aria-selected="true"] {
 	border-bottom: 3px solid hsl(var(--clr-white));
 }
 
-.planet.active div {
+.underlineButton[aria-selected="true"] div {
 	color: hsl(var(--clr-white));
 }
 
-.planet:hover:not(.active) {
+.underlineButton:hover:not([aria-selected="true"]) {
 	cursor: pointer;
 	border-bottom: 3px solid hsl(var(--clr-light));
 }
 
 @media (min-width: 640px) {
-	.planetSlider {
+	.underlineList {
 		gap: 2.25rem;
 	}
 
-	.planet {
+	.underlineButton {
 		padding-bottom: 0.75rem;
 	}
 }
 
 @media (min-width: 1024px) {
-	.planetSlider {
+	.underlineList {
 		justify-content: start;
 	}
 }

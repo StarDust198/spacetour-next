@@ -1,16 +1,25 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useState } from 'react';
 import {
+  DotIndicators,
   Divider,
   Heading,
   HomeButton,
   NavText,
+  NumberIndicators,
   P,
-  PlanetSlider,
+  UnderlineIndicators,
   Subheading,
 } from '../components';
 
+const planets: string[] = ['moon', 'mars', 'europa', 'titan'];
+
 const Home: NextPage = () => {
+  const [textSelected, setTextSelected] = useState<number>(1);
+  const [numSelected, setNumSelected] = useState<number>(1);
+  const [dotSelected, setDotSelected] = useState<number>(1);
+
   return (
     <div>
       <Head>
@@ -40,7 +49,21 @@ const Home: NextPage = () => {
         Adipisci ad asperiores quod numquam mollitia non harum. Soluta, commodi!
       </P>
       <HomeButton />
-      <PlanetSlider />
+      <UnderlineIndicators
+        selected={textSelected}
+        setSelected={setTextSelected}
+        values={planets}
+      />
+      <DotIndicators
+        selected={dotSelected}
+        setSelected={setDotSelected}
+        total={4}
+      />
+      <NumberIndicators
+        selected={numSelected}
+        setSelected={setNumSelected}
+        total={3}
+      />
     </div>
   );
 };

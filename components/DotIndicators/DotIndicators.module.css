@@ -1,0 +1,36 @@
+.dotList {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+}
+
+.dotItem {
+	font-size: 1px;
+	line-height: 1;
+}
+
+.dotButton {
+	border: none;
+	background: hsl(var(--clr-white) / 0.17);
+	border-radius: 50%;
+	padding: 0.33rem;
+}
+
+.dotButton[aria-selected="true"] {
+	background: hsl(var(--clr-white));
+}
+
+.dotButton:hover:not([aria-selected="true"]) {
+	cursor: pointer;
+	background: hsl(var(--clr-white) / 0.5);
+}
+
+@media (min-width: 1024px) {
+	.dotList {
+		justify-content: start;
+	}
+
+	.dotButton {
+		padding: 0.5rem;
+	}
+}

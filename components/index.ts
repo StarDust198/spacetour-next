@@ -4,4 +4,6 @@ export * from './P/P';
 export * from './NavText/NavText';
 export * from './Divider/Divider';
 export * from './HomeButton/HomeButton';
-export * from './PlanetSlider/PlanetSlider';
+export * from './UnderlineIndicators/UnderlineIndicators';
+export * from './DotIndicators/DotIndicators';
+export * from './NumberIndicators/NumberIndicators';
