@@ -1,0 +1,39 @@
+.wrapper {
+	display: grid;
+	padding: 1.5rem 1.5rem 3rem 1.5rem;
+	justify-items: center;
+	gap: 1rem;
+	align-items: center;
+}
+
+.textBlock {
+	max-width: 20.5rem;
+}
+
+.text {
+	margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+	.wrapper {
+		gap: 2rem;
+		padding: 2rem 2rem 4rem 2rem;
+	}
+
+	.textBlock {
+		max-width: 28rem;
+	}
+
+	.text {
+		max-width: 27.75rem;
+		margin-top: 1.5rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.wrapper {
+		align-items: end;
+		padding-bottom: max(8.25rem, 15vh);
+		grid-template-columns: 1fr 1fr;
+	}
+}

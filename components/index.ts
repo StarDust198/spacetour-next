@@ -7,3 +7,4 @@ export * from './HomeButton/HomeButton';
 export * from './UnderlineIndicators/UnderlineIndicators';
 export * from './DotIndicators/DotIndicators';
 export * from './NumberIndicators/NumberIndicators';
+export * from './NavMenu/NavMenu';

@@ -1,0 +1,51 @@
+.navMenu {
+	position: fixed;
+	width: 15.875rem;
+	height: 100vh;
+	padding: max(15vh, 7.375rem) 2rem;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: hsl(var(--clr-dark) / 0.95);
+	transition: right 0.5s ease-in-out;
+	z-index: 5;
+}
+
+.hidden {
+	right: -15.875rem;
+}
+
+.navList {
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: 1fr;
+}
+
+@supports (backdrop-filter: blur(30px)) {
+	.navMenu {
+		background-color: hsl(var(--clr-dark) / 0.3);
+		backdrop-filter: blur(30px);
+	}
+}
+
+@media (min-width: 640px) {
+	.navMenu {
+		position: static;
+		height: 100%;
+		padding: 0 3rem;
+		width: unset;
+	}
+
+	.navList {
+		height: 100%;
+		grid-template-columns: repeat(4, auto);
+		gap: 2.5rem;
+		align-items: center;
+	}
+}
+
+@media (min-width: 1024px) {
+	.navMenu {
+		padding-inline: 7.75rem 10.25rem;
+	}
+}

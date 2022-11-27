@@ -1,0 +1,21 @@
+.wrapper {
+	display: grid;
+	gap: 1.5rem;
+	padding-top: 1.5rem;
+	grid-template-rows: auto 1fr;
+	min-height: 100vh;
+}
+
+@media (min-width: 640px) {
+	.wrapper {
+		padding-top: 0;
+		gap: 2.5rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.wrapper {
+		padding-top: 2.5rem;
+		gap: 4.75rem;
+	}
+}
