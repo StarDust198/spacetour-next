@@ -14,6 +14,24 @@
 	margin-top: 1rem;
 }
 
+.bg {
+	height: 100vh;
+	position: absolute;
+	z-index: -10;
+	top:0;
+	left:0;
+	bottom:0;
+	right: 0;
+}
+
+.bgTablet {
+	display: none;
+}
+
+.bgDesktop {
+	display: none;
+}
+
 @media (min-width: 640px) {
 	.wrapper {
 		gap: 2rem;
@@ -28,6 +46,14 @@
 		max-width: 27.75rem;
 		margin-top: 1.5rem;
 	}
+
+	.bgMobile {
+		display: none;
+	}
+
+	.bgTablet {
+		display: block;
+	}
 }
 
 @media (min-width: 1024px) {
@@ -35,5 +61,13 @@
 		align-items: end;
 		padding-bottom: max(8.25rem, 15vh);
 		grid-template-columns: 1fr 1fr;
+	}
+
+	.bgTablet {
+		display: none;
+	}
+
+	.bgDesktop {
+		display: block;
 	}
 }

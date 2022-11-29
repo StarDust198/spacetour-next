@@ -3,6 +3,10 @@ import styles from './HomePageComponent.module.css';
 import { FC } from 'react';
 import cn from 'classnames';
 import { Heading, HomeButton, P } from '../../components';
+import bgMobile from '../../assets/home/background-home-mobile.jpg';
+import bgTablet from '../../assets/home/background-home-tablet.jpg';
+import bgDesktop from '../../assets/home/background-home-desktop.jpg';
+import Image from 'next/image';
 
 export const HomePageComponent: FC<HomePageComponentProps> = ({
   className,
@@ -22,6 +26,32 @@ export const HomePageComponent: FC<HomePageComponentProps> = ({
         </P>
       </div>
       <HomeButton className={styles.button} />
+      <div className={styles.bg}>
+        <Image
+          className={styles.bgMobile}
+          src={bgMobile.src}
+          alt="background"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+        />
+        <Image
+          className={styles.bgTablet}
+          src={bgTablet.src}
+          alt="background"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+        />
+        <Image
+          className={styles.bgDesktop}
+          src={bgDesktop.src}
+          alt="background"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+        />
+      </div>
     </div>
   );
 };

@@ -1,16 +1,16 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { withLayout } from '../layout/Layout';
-import { HomePageComponent } from '../page-components';
+import { DestinationPageComponent } from '../page-components';
 
 const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Space Tour Home</title>
-        <meta name="description" content="Space Tour Homepage" />
+        <title>Space Tour - Choose Destination</title>
+        <meta name="description" content="Space Tour Destination Page" />
       </Head>
-      <HomePageComponent />
+      <DestinationPageComponent />
     </>
   );
 };

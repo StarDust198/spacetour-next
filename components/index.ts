@@ -8,3 +8,4 @@ export * from './UnderlineIndicators/UnderlineIndicators';
 export * from './DotIndicators/DotIndicators';
 export * from './NumberIndicators/NumberIndicators';
 export * from './NavMenu/NavMenu';
+export * from './PlanetBlock/PlanetBlock';
