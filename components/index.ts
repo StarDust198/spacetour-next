@@ -9,3 +9,5 @@ export * from './DotIndicators/DotIndicators';
 export * from './NumberIndicators/NumberIndicators';
 export * from './NavMenu/NavMenu';
 export * from './PlanetBlock/PlanetBlock';
+export * from './CrewBlock/CrewBlock';
+export * from './TechBlock/TechBlock';

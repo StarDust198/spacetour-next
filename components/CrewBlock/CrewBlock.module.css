@@ -1,0 +1,21 @@
+.crewBlock {
+	max-width: 21rem;
+}
+
+.crewTitle {
+	white-space: nowrap;
+}
+
+.crewDescription {
+	margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+	.crewBlock {
+		max-width: 28.5rem;
+	}
+}
+
+@media (min-width: 1024px) {
+
+}

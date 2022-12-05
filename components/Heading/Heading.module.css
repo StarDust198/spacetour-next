@@ -11,17 +11,18 @@
 }
 
 .big {
-	font-size: 5rem;
-	line-height: 1.25;
-}
-
-.big em {
-	margin-bottom: 1rem;
 	font-size: 1rem;
 	line-height: 1.2;
 	font-family: var(--ff-sans-cond);
 	color: hsl(var(--clr-light));
 	letter-spacing: 2.7px;
+}
+
+.big em {
+	font-family: var(--ff-serif);
+	margin-top: 1rem;
+	font-size: 5rem;
+	line-height: 1.25;
 }
 
 .medium {
@@ -44,15 +45,15 @@
 
 @media (min-width: 640px) {
 	.big {
-		font-size: 9.375rem;
-		line-height: 1;
-	}
-
-	.big em {
-		margin-bottom: 1.5rem;
 		font-size: 1.5rem;
 		line-height: 1.2;
 		letter-spacing: 3.375px;
+	}
+
+	.big em {
+		margin-top: 1.5rem;
+		font-size: 9.375rem;
+		line-height: 1;
 	}
 
 	.medium {
@@ -76,11 +77,12 @@
 	}
 
 	.big {
-		line-height: 1.15;
+		font-size: 1.75rem;
+		letter-spacing: 4.725px;
 	}
 
 	.big em {
-		letter-spacing: 4.725px;
+		line-height: 1.15;
 	}
 
 	.medium {

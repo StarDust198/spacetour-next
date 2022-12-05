@@ -1,4 +1,4 @@
-import { HeadingProps, HeadingSize } from './Heading.props';
+import { HeadingProps } from './Heading.props';
 import styles from './Heading.module.css';
 import { FC } from 'react';
 import cn from 'classnames';

@@ -224,3 +224,36 @@ input, button, textarea, select {
 .fs80 {
     line-height: 1.15;
 }
+
+/* grid */
+
+.gridContainer {
+  row-gap: var(--row-gap, 2rem);
+  display: grid;
+  text-align: center;
+  place-items: center;
+  padding-inline: 1rem;
+}
+
+.gridContainer > * {
+  max-width: 40ch;
+  /* outline: 1px solid yellow; */
+}
+
+@media (min-width: 640px) {
+  .gridContainer > * {
+    max-width: 50ch;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gridContainer {
+    text-align: left;
+    column-gap: var(--column-gap, 2rem);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem, 1fr);
+  }
+
+  .gridContainer > * {
+    max-width: 45ch;
+  }
+}
