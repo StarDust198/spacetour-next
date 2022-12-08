@@ -3,6 +3,7 @@
 	text-align: center;
 	font-family: var(--ff-serif);
 	color: hsl(var(--clr-white) );
+	white-space: nowrap;
 }
 
 .heading em {
@@ -10,64 +11,112 @@
 	font-style: normal;
 }
 
-.big {
-	font-size: 1rem;
+.heading span {
+	display: block;
+}
+
+.home {
+	/* font-size: 1rem; */
+	font-size: clamp(1rem, 4vw, 1.5rem);
 	line-height: 1.2;
 	font-family: var(--ff-sans-cond);
 	color: hsl(var(--clr-light));
 	letter-spacing: 2.7px;
 }
 
-.big em {
+.home em {
 	font-family: var(--ff-serif);
 	margin-top: 1rem;
-	font-size: 5rem;
+	/* font-size: 5rem; */
+	font-size: clamp(5rem, 20vw, 8rem);
 	line-height: 1.25;
 }
 
-.medium {
+.pageDestination {
 	font-size: 3.5rem;
 	line-height: 1.125;
 }
 
-.small {
+.pageOther {
 	font-size: 1.5rem;
 	line-height: 1.15;
 }
 
-.small em {
+.pageOther em {
 	font-size: 1rem;
 	line-height: 1.125;
-	/* opacity: 0.5; */
 	margin-bottom: 0.5rem;
 	color: hsl(var(--clr-light)/ 0.5);
 }
 
+.pageOther span {
+	margin-bottom: 0.5rem;
+	font-family: var(--ff-sans-cond);
+	font-size: 0.875rem;
+	letter-spacing: 2.35px;
+	color: hsl(var(--clr-light));
+	line-height: 1.2;
+}
+
+.sub {
+	font-size: 0.875em;
+	line-height: 1.2;
+	letter-spacing: 2.35px;
+	font-family: var(--ff-sans-cond);
+	color: hsl(var(--clr-light) );
+}
+
+.nav {
+	font-family: var(--ff-sans-cond);
+	line-height: 1.2;
+	font-size: 1rem;
+	letter-spacing: 2.7px;
+}
+
+.nav span {
+	margin-right: 1rem;
+	color: hsl(var(--clr-white) / 0.25);
+	font-weight: 700;
+	display: inline;
+}
+
 @media (min-width: 640px) {
-	.big {
+	.home {
 		font-size: 1.5rem;
 		line-height: 1.2;
 		letter-spacing: 3.375px;
 	}
 
-	.big em {
+	.home em {
 		margin-top: 1.5rem;
 		font-size: 9.375rem;
 		line-height: 1;
 	}
 
-	.medium {
+	.pageDestination {
 		font-size: 5rem;
 		line-height: 1.15;
 	}
 
-	.small {
+	.pageOther {
 		font-size: 2.5rem;
 	}
 
-	.small em {
+	.pageOther em {
 		font-size: 1.5rem;
 		line-height: 1.15;
+	}
+
+	.pageOther span {
+		margin-bottom: 1rem;
+		font-size: 1rem;
+		letter-spacing: 2.7px;
+	}
+
+	.nav {
+		text-align: left;
+		font-size: 1.25rem;
+		letter-spacing: 3.375px;
 	}
 }
 
@@ -76,26 +125,36 @@
 		text-align: left;
 	}
 
-	.big {
+	.home {
 		font-size: 1.75rem;
 		letter-spacing: 4.725px;
 	}
 
-	.big em {
+	.home em {
 		line-height: 1.15;
 	}
 
-	.medium {
+	.pageDestination {
 		font-size: 6.25rem;
 	}
 
-	.small {
-		font-size: 4rem;
+	.pageOther {
+		font-size: 3.5rem;
 		line-height: 1.15;
 	}
 
-	.small em {
+	.pageOther em {
+		font-size: 2rem;
 		line-height: 1.15;
 		margin-bottom: 1rem;
+	}
+
+	.nav {
+		font-size: 1.75rem;
+		letter-spacing: 4.725px;
+	}
+
+	.nav span {
+		margin-right: 1.5rem;
 	}
 }

@@ -25,9 +25,9 @@ export const DotIndicators: FC<DotIndicatorsProps> = ({
           role="tab"
           className={styles.dotButton}
           onClick={() => {
-            setSelected(i + 1);
+            setSelected(i);
           }}
-          aria-selected={selected === i + 1}
+          aria-selected={selected === i}
         />
       );
     });
@@ -37,7 +37,7 @@ export const DotIndicators: FC<DotIndicatorsProps> = ({
   return (
     <ul className={cn(styles.dotList, className)} {...props}>
       {dotArr.map((number, i) => (
-        <li className={styles.dotItem} key={`dotIndicator${i + 1}`}>
+        <li className={styles.dotItem} key={`dotIndicator${i}`}>
           {number}
         </li>
       ))}

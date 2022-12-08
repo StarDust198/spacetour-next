@@ -14,7 +14,7 @@ export const CrewBlock: FC<CrewBlockProps> = ({
 }) => {
   return (
     <div className={cn(styles.crewBlock, className)} {...props}>
-      <Heading className={styles.crewTitle} size="small">
+      <Heading className={styles.crewTitle} place="pageOther">
         <em>{rank}</em>
         {title}
       </Heading>

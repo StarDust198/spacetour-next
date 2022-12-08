@@ -2,10 +2,10 @@ import { DestinationPageComponentProps } from './DestinationPageComponent.props'
 import styles from './DestinationPageComponent.module.css';
 import { FC, useState } from 'react';
 import cn from 'classnames';
-import { NavText, PlanetBlock, UnderlineIndicators } from '../../components';
-import bgMobile from '../../assets/destination/background-destination-mobile.jpg';
-import bgTablet from '../../assets/destination/background-destination-tablet.jpg';
-import bgDesktop from '../../assets/destination/background-destination-desktop.jpg';
+import { Heading, PlanetBlock, UnderlineIndicators } from '../../components';
+// import bgMobile from '../../assets/destination/background-destination-mobile.jpg';
+// import bgTablet from '../../assets/destination/background-destination-tablet.jpg';
+// import bgDesktop from '../../assets/destination/background-destination-desktop.jpg';
 import Image from 'next/image';
 
 export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
@@ -21,11 +21,15 @@ export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
         className={cn('gridContainer', styles.wrapper, className)}
         {...props}
       >
-        <NavText place={'page'} className={styles.pageTitle}>
-          <em>01</em>pick your destination
-        </NavText>
+        <Heading place="nav" className="pageTitle">
+          <span>01</span>pick your destination
+        </Heading>
         <div className={styles.planetImage}>
-          <Image alt={'Moon'} src={destinations[0].img} fill />
+          <Image
+            alt={destinations[planet].title}
+            src={destinations[planet].img}
+            fill
+          />
         </div>
         <UnderlineIndicators
           className={styles.planetNav}
@@ -35,32 +39,32 @@ export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
         />
         <PlanetBlock
           className={styles.planetBlock}
-          name={destinations[0].title}
-          description={destinations[0].description}
-          distance={destinations[0].distance}
-          time={destinations[0].time}
+          name={destinations[planet].title}
+          description={destinations[planet].description}
+          distance={destinations[planet].distance}
+          time={destinations[planet].time}
         />
       </div>
-      <div className={styles.bg}>
+      <div className="bg">
         <Image
-          className={styles.bgMobile}
-          src={bgMobile.src}
+          className="bgMobile"
+          src={'/assets/destination/background-destination-mobile.jpg'}
           alt="background"
           layout="fill"
           objectFit="cover"
           quality={100}
         />
         <Image
-          className={styles.bgTablet}
-          src={bgTablet.src}
+          className="bgTablet"
+          src={'/assets/destination/background-destination-tablet.jpg'}
           alt="background"
           layout="fill"
           objectFit="cover"
           quality={100}
         />
         <Image
-          className={styles.bgDesktop}
-          src={bgDesktop.src}
+          className="bgDesktop"
+          src={'/assets/destination/background-destination-desktop.jpg'}
           alt="background"
           layout="fill"
           objectFit="cover"

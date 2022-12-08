@@ -5,7 +5,6 @@ export interface HeadingProps
     HTMLAttributes<HTMLHeadingElement>,
     HTMLHeadingElement
   > {
-  tag?: 'h1' | 'h2' | 'h3';
-  size?: 'big' | 'medium' | 'small';
+  place: 'home' | 'nav' | 'pageDestination' | 'pageOther' | 'sub';
   children: ReactNode;
 }

@@ -2,50 +2,78 @@ import { TechPageComponentProps } from './TechPageComponent.props';
 import styles from './TechPageComponent.module.css';
 import { FC, useState } from 'react';
 import cn from 'classnames';
-import { NavText } from '../../components';
-import bgMobile from '../../assets/technology/background-technology-mobile.jpg';
-import bgTablet from '../../assets/technology/background-technology-tablet.jpg';
-import bgDesktop from '../../assets/technology/background-technology-desktop.jpg';
+import { Heading, NumberIndicators, TechBlock } from '../../components';
 import Image from 'next/image';
 
 export const TechPageComponent: FC<TechPageComponentProps> = ({
   className,
   technology,
+  ...props
 }) => {
   const [techItem, setTechItem] = useState<number>(0);
-
   return (
-    <div className={cn(styles.wrapper, className)}>
-      <NavText place={'page'} className={styles.pageTitle}>
-        <em>01</em>pick your destination
-      </NavText>
-
-      <div className={styles.bg}>
+    <>
+      <div
+        className={cn('gridContainer', styles.wrapper, className)}
+        {...props}
+      >
+        <Heading place="nav" className="pageTitle">
+          <span>03</span>space launch 101
+        </Heading>
+        <div className={styles.techImage}>
+          <Image
+            className={styles.techImageMobile}
+            alt={technology[techItem].title}
+            src={technology[techItem].img}
+            fill
+          />
+          <Image
+            className={styles.techImageDesktop}
+            alt={technology[techItem].title}
+            src={technology[techItem].imgDesktop}
+            fill
+          />
+        </div>
+        <div className={styles.techMain}>
+          <NumberIndicators
+            selected={techItem}
+            setSelected={setTechItem}
+            total={technology.length}
+            className={styles.techNav}
+          />
+          <TechBlock
+            className={styles.techBlock}
+            name={technology[techItem].title}
+            description={technology[techItem].description}
+          />
+        </div>
+      </div>
+      <div className="bg">
         <Image
-          className={styles.bgMobile}
-          src={bgMobile.src}
+          className="bgMobile"
+          src="/assets/technology/background-technology-mobile.jpg"
           alt="background"
           layout="fill"
           objectFit="cover"
           quality={100}
         />
         <Image
-          className={styles.bgTablet}
-          src={bgTablet.src}
+          className="bgTablet"
+          src="/assets/technology/background-technology-tablet.jpg"
           alt="background"
           layout="fill"
           objectFit="cover"
           quality={100}
         />
         <Image
-          className={styles.bgDesktop}
-          src={bgDesktop.src}
+          className="bgDesktop"
+          src="/assets/technology/background-technology-desktop.jpg"
           alt="background"
           layout="fill"
           objectFit="cover"
           quality={100}
         />
       </div>
-    </div>
+    </>
   );
 };

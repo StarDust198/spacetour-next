@@ -3,9 +3,9 @@ import styles from './HomePageComponent.module.css';
 import { FC } from 'react';
 import cn from 'classnames';
 import { Heading, HomeButton, P } from '../../components';
-import bgMobile from '../../assets/home/background-home-mobile.jpg';
-import bgTablet from '../../assets/home/background-home-tablet.jpg';
-import bgDesktop from '../../assets/home/background-home-desktop.jpg';
+// import bgMobile from '../../assets/home/background-home-mobile.jpg';
+// import bgTablet from '../../assets/home/background-home-tablet.jpg';
+// import bgDesktop from '../../assets/home/background-home-desktop.jpg';
 import Image from 'next/image';
 
 export const HomePageComponent: FC<HomePageComponentProps> = ({
@@ -19,7 +19,7 @@ export const HomePageComponent: FC<HomePageComponentProps> = ({
         {...props}
       >
         <div className={styles.homeBlock}>
-          <Heading size="big" className={styles.homeTitle}>
+          <Heading place="home" className={styles.homeTitle}>
             SO, YOU WANT TO TRAVEL TO<em>SPACE</em>
           </Heading>
           <P className={styles.homeDescription}>
@@ -29,29 +29,29 @@ export const HomePageComponent: FC<HomePageComponentProps> = ({
             world experience!
           </P>
         </div>
-        <HomeButton className={styles.button} />
+        <HomeButton className={styles.homeButton} />
       </div>
 
-      <div className={styles.bg}>
+      <div className="bg">
         <Image
-          className={styles.bgMobile}
-          src={bgMobile.src}
+          className="bgMobile"
+          src={'/assets/home/background-home-mobile.jpg'}
           alt="background"
           layout="fill"
           objectFit="cover"
           quality={100}
         />
         <Image
-          className={styles.bgTablet}
-          src={bgTablet.src}
+          className="bgTablet"
+          src={'/assets/home/background-home-tablet.jpg'}
           alt="background"
           layout="fill"
           objectFit="cover"
           quality={100}
         />
         <Image
-          className={styles.bgDesktop}
-          src={bgDesktop.src}
+          className="bgDesktop"
+          src={'/assets/home/background-home-desktop.jpg'}
           alt="background"
           layout="fill"
           objectFit="cover"

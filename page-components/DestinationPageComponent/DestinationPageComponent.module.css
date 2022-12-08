@@ -1,127 +1,69 @@
 .wrapper {
-	display: grid;
-	padding-bottom: 3.5rem;
-	justify-items: center;
-	row-gap: 1.25rem;
-	grid-template-columns: 1.5rem 1fr 1.5rem;
 	grid-template-areas: 
-		". pageTitle ."
-		". planetImage ."
+		"pageTitle pageTitle pageTitle"
+		"planetImage planetImage planetImage"
 		". planetNav ."
 		". planetBlock .";
-	grid-template-rows: min-content max(40vw, 10.625rem);
-	grid-auto-rows: min-content;
-}
-
-.pageTitle {
-	grid-area: pageTitle;
 }
 
 .planetImage {
-	margin-top: 0.75rem;
+	width: 45%;
 	aspect-ratio: 1;
 	position: relative;
 	grid-area: planetImage;
 }
 
 .planetNav {
-	margin-top: 0.375rem;
 	grid-area: planetNav;
 }
 
 .planetBlock {
 	grid-area: planetBlock;
-}
-
-.bg {
-	height: 100vh;
-	position: absolute;
-	z-index: -10;
-	top:0;
-	left:0;
-	bottom:0;
-	right: 0;
-}
-
-.bgTablet {
-	display: none;
-}
-
-.bgDesktop {
-	display: none;
+	margin-top: -1rem;
 }
 
 @media (min-width: 640px) {
 	.wrapper {
-		row-gap: 2rem;
-		padding-bottom: 4rem;
-		grid-template-columns: 2.5rem 1fr 2.5rem;
-		grid-template-areas: 
-			". pageTitle ."
-			". planetImage ."
-			". planetNav ."
-			". planetBlock .";
-		grid-template-rows: min-content max(35vw, 18.75rem);
-		grid-auto-rows: min-content;
-	}
-
-	.pageTitle {
-		justify-self: start;
+		--center-width: 36rem;
 	}
 
 	.planetImage {
-		margin-top: 1.75rem;
+		width: 40%;
 	}
 
-	.planetNav {
-		margin-top: 1.25rem;
-	}
-
-	.bgMobile {
-		display: none;
-	}
-
-	.bgTablet {
-		display: block;
+	.planetBlock {
+		margin-top: -2rem;
 	}
 }
 
 @media (min-width: 1024px) {
 	.wrapper {
-		align-items: end;
-		/* padding-bottom: max(8.25rem, 15vh); */
-		grid-template-columns: minmax(2rem, 1fr) minmax(1rem, 4rem) 28rem minmax(2rem, 10rem) 28rem minmax(2rem, 1fr);
-		grid-template-rows: min-content;
-		/* grid-template-rows: unset; */
-		grid-auto-rows: unset;
-		row-gap: 2.5rem;
+		/* --row-gap: max(7vh, 4rem); */
+		--center-columns: minmax(0, 36rem) minmax(0, 28rem);
 		grid-template-areas: 
-			". pageTitle pageTitle pageTitle pageTitle ."
-			". . planetImage . planetNav ."
-			". . planetImage . planetBlock ."
-			". . planetImage . planetBlock .";
+			". pageTitle . ."
+			". . planetNav ."
+			". planetImage planetBlock .";
+		grid-template-rows: min-content;
+		/* align-content: start; */
 	}
 
 	.planetNav {
 		justify-self: start;
+		align-self: end;
+		/* width: 28rem; */
 	}
 
 	.planetBlock {
 		justify-self: start;
 		align-self: start;
+		margin-top: 2rem;
+		/* margin-top: min(-2rem, -3.5vh); */
+		/* width: 28rem; */
 	}
 
 	.planetImage {
-		width: 27.75rem;
-		justify-self: center;
-		align-self: center;
-	}
-
-	.bgTablet {
-		display: none;
-	}
-
-	.bgDesktop {
-		display: block;
+		align-self: start;
+		width: 80%;
 	}
 }

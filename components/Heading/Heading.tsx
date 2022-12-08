@@ -5,37 +5,40 @@ import cn from 'classnames';
 
 export const Heading: FC<HeadingProps> = ({
   className,
-  tag = 'h1',
-  size = 'big',
+  place,
   children,
   ...props
 }) => {
   const clazz = cn(styles.heading, className, {
-    [styles.big]: size === 'big',
-    [styles.medium]: size === 'medium',
-    [styles.small]: size === 'small',
+    [styles.home]: place === 'home',
+    [styles.pageDestination]: place === 'pageDestination',
+    [styles.pageOther]: place === 'pageOther',
+    [styles.nav]: place === 'nav',
+    [styles.sub]: place === 'sub',
   });
 
-  switch (tag) {
-    case 'h1':
+  switch (place) {
+    case 'home':
+    case 'nav':
       return (
         <h1 className={clazz} {...props}>
           {children}
         </h1>
       );
-    case 'h2':
+    case 'pageDestination':
+    case 'pageOther':
       return (
         <h2 className={clazz} {...props}>
           {children}
         </h2>
       );
-    case 'h3':
+    case 'sub':
       return (
         <h3 className={clazz} {...props}>
           {children}
         </h3>
       );
     default:
-      return <>!header!</>;
+      return <>!heading!</>;
   }
 };

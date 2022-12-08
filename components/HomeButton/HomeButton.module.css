@@ -1,11 +1,13 @@
 .homeButton {
-	font-size: 1.25rem;
+	/* font-size: 1.25rem; */
+	font-size: clamp(1.25rem, 5vw, 1.75rem);
 	line-height: 1.15;
 	letter-spacing: 1.25px;
 	color: hsl(var(--clr-dark));
 	background-color: hsl(var(--clr-white));
 	border-radius:50%;
-	padding-inline: 1.75rem;
+	/* padding-inline: 1.75rem; */
+	padding-inline: 1.75em;
 	text-transform: uppercase;
 	font-family: var(--ff-serif);
 	aspect-ratio: 1;

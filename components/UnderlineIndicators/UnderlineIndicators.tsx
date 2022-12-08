@@ -2,7 +2,6 @@ import { UnderlineIndicatorsProps } from './UnderlineIndicators.props';
 import styles from './UnderlineIndicators.module.css';
 import { FC, useEffect, useState } from 'react';
 import cn from 'classnames';
-import { NavText } from '../NavText/NavText';
 
 export const UnderlineIndicators: FC<UnderlineIndicatorsProps> = ({
   selected,
@@ -26,11 +25,11 @@ export const UnderlineIndicators: FC<UnderlineIndicatorsProps> = ({
           role="tab"
           className={styles.underlineButton}
           onClick={() => {
-            setSelected(i + 1);
+            setSelected(i);
           }}
-          aria-selected={selected === i + 1}
+          aria-selected={selected === i}
         >
-          <NavText place="info">{text}</NavText>
+          {text}
         </button>
       );
     });
@@ -40,7 +39,7 @@ export const UnderlineIndicators: FC<UnderlineIndicatorsProps> = ({
   return (
     <ul className={cn(styles.underlineList, className)} {...props}>
       {valuesArr.map((number, i) => (
-        <li className={styles.underlineItem} key={`numIndicator${i + 1}`}>
+        <li className={styles.underlineItem} key={`numIndicator${i}`}>
           {number}
         </li>
       ))}

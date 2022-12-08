@@ -5,7 +5,6 @@ import cn from 'classnames';
 import { Heading } from '../Heading/Heading';
 import { P } from '../P/P';
 import { Divider } from '../Divider/Divider';
-import { Subheading } from '../Subheading/Subheading';
 
 export const PlanetBlock: FC<PlanetBlockProps> = ({
   className,
@@ -16,24 +15,20 @@ export const PlanetBlock: FC<PlanetBlockProps> = ({
   ...props
 }) => {
   return (
-    <div className={cn(styles.planetBlock, className)} {...props}>
-      <Heading size="medium">{name}</Heading>
+    <article className={cn(styles.planetBlock, className)} {...props}>
+      <Heading place="pageDestination">{name}</Heading>
       <P className={styles.planetDescription}>{description}</P>
       <Divider className={styles.divider} />
       <div className={styles.planetInfo}>
         <div className={styles.planetInfoBlock}>
-          <Subheading size="small">avg. distance</Subheading>
-          <Subheading className={styles.planetSubInfo} size="big">
-            {distance}
-          </Subheading>
+          <Heading place="sub">avg. distance</Heading>
+          <p className={styles.planetSubInfo}>{distance}</p>
         </div>
         <div className={styles.planetInfoBlock}>
-          <Subheading size="small">est. travel time</Subheading>
-          <Subheading className={styles.planetSubInfo} size="big">
-            {time}
-          </Subheading>
+          <Heading place="sub">est. travel time</Heading>
+          <p className={styles.planetSubInfo}>{time}</p>
         </div>
       </div>
-    </div>
+    </article>
   );
 };

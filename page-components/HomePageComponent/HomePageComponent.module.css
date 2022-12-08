@@ -1,74 +1,41 @@
-/* .wrapper {
-	display: grid;
-	padding: 1.5rem 1.5rem 3rem 1.5rem;
-	justify-items: center;
-	gap: 1rem;
-	align-items: center;
+.wrapper {
+	grid-template-areas:
+		". homeBlock ."
+		". homeButton .";
 }
-
-.homeBlock {
-	max-width: 20.5rem;
-} */
 
 .homeDescription {
 	margin-top: 1rem;
 }
 
-.bg {
-	height: 100vh;
-	position: absolute;
-	z-index: -10;
-	top:0;
-	left:0;
-	bottom:0;
-	right: 0;
+.homeBlock {
+	grid-area: homeBlock;
 }
 
-.bgTablet {
-	display: none;
-}
-
-.bgDesktop {
-	display: none;
+.homeButton {
+	grid-area: homeButton;
 }
 
 @media (min-width: 640px) {
-	/* .wrapper {
-		gap: 2rem;
-		padding: 2rem 2rem 4rem 2rem;
-	} */
-
-	/* .homeBlock {
-		max-width: 28rem;
-	} */
-
 	.homeDescription {
-		/* max-width: 27.75rem; */
 		margin-top: 1.5rem;
-	}
-
-	.bgMobile {
-		display: none;
-	}
-
-	.bgTablet {
-		display: block;
 	}
 }
 
 @media (min-width: 1024px) {
 	.wrapper {
 		align-items: end;
-		padding-bottom: max(8.25rem, 15vh);
 		padding-bottom: max(6rem, 15vh);
-		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 
+			". homeBlock homeButton .";
 	}
 
-	.bgTablet {
-		display: none;
+	.homeBlock {
+		justify-self: start;
 	}
 
-	.bgDesktop {
-		display: block;
+	.homeButton {
+		justify-self: end;
+		margin-right: 3rem;
 	}
 }

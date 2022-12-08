@@ -25,9 +25,9 @@ export const NumberIndicators: FC<NumberIndicatorsProps> = ({
           role="tab"
           className={styles.numButton}
           onClick={() => {
-            setSelected(i + 1);
+            setSelected(i);
           }}
-          aria-selected={selected === i + 1}
+          aria-selected={selected === i}
         >
           {i + 1}
         </button>
@@ -39,7 +39,7 @@ export const NumberIndicators: FC<NumberIndicatorsProps> = ({
   return (
     <ul className={cn(styles.numList, className)} {...props}>
       {numberArr.map((number, i) => (
-        <li className={styles.numItem} key={`numIndicator${i + 1}`}>
+        <li className={styles.numItem} key={`numIndicator${i}`}>
           {number}
         </li>
       ))}

@@ -2,10 +2,10 @@ import { CrewPageComponentProps } from './CrewPageComponent.props';
 import styles from './CrewPageComponent.module.css';
 import { FC, useState } from 'react';
 import cn from 'classnames';
-import { CrewBlock, Divider, DotIndicators, NavText } from '../../components';
-import bgMobile from '../../assets/crew/background-crew-mobile.jpg';
-import bgTablet from '../../assets/crew/background-crew-tablet.jpg';
-import bgDesktop from '../../assets/crew/background-crew-desktop.jpg';
+import { CrewBlock, Divider, DotIndicators, Heading } from '../../components';
+// import bgMobile from '../../assets/crew/background-crew-mobile.jpg';
+// import bgTablet from '../../assets/crew/background-crew-tablet.jpg';
+// import bgDesktop from '../../assets/crew/background-crew-desktop.jpg';
 import Image from 'next/image';
 
 export const CrewPageComponent: FC<CrewPageComponentProps> = ({
@@ -15,12 +15,12 @@ export const CrewPageComponent: FC<CrewPageComponentProps> = ({
   const [crewMember, setCrewMember] = useState<number>(0);
 
   return (
-    <div className={cn(styles.wrapper, className)}>
-      <NavText place={'page'} className={styles.pageTitle}>
-        <em>02</em>meet your crew
-      </NavText>
+    <div className={cn('gridContainer', styles.wrapper, className)}>
+      <Heading place="nav" className="pageTitle">
+        <span>02</span>meet your crew
+      </Heading>
       <div className={styles.crewImage}>
-        <Image alt={crew[0].title} src={crew[0].img} fill />
+        <Image alt={crew[crewMember].title} src={crew[crewMember].img} fill />
         <Divider className={styles.divider} />
       </div>
       <DotIndicators
@@ -29,27 +29,30 @@ export const CrewPageComponent: FC<CrewPageComponentProps> = ({
         setSelected={setCrewMember}
         total={crew.length}
       />
-      <CrewBlock className={styles.crewBlock} {...crew[0]} />
-      <div className={styles.bg}>
+      <CrewBlock className={styles.crewBlock} {...crew[crewMember]} />
+      <div className="bg">
         <Image
-          className={styles.bgMobile}
-          src={bgMobile.src}
+          className="bgMobile"
+          src={'/assets/crew/background-crew-mobile.jpg'}
           alt="background"
           layout="fill"
           objectFit="cover"
           quality={100}
         />
         <Image
-          className={styles.bgTablet}
-          src={bgTablet.src}
+          className="bgTablet"
+          src={'/assets/crew/background-crew-tablet.jpg'}
           alt="background"
           layout="fill"
           objectFit="cover"
           quality={100}
         />
         <Image
-          className={styles.bgDesktop}
-          src={bgDesktop.src}
+          className="bgDesktop"
+          src={
+            // process.env.NEXT_PUBLIC_DOMAIN +
+            '/assets/crew/background-crew-desktop.jpg'
+          }
           alt="background"
           layout="fill"
           objectFit="cover"

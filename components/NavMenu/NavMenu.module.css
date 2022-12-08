@@ -21,6 +21,25 @@
 	grid-template-columns: 1fr;
 }
 
+.navItem {
+	text-transform: uppercase;
+	font-size: 1rem;
+	line-height: 1.15;
+	letter-spacing: 2.7px;
+	font-family: var(--ff-sans-cond);
+	
+}
+
+.navItem a {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.navItem a span {
+	font-weight: 700;
+	margin-right: 0.75rem;
+}
+
 @supports (backdrop-filter: blur(30px)) {
 	.navMenu {
 		background-color: hsl(var(--clr-dark) / 0.3);
@@ -42,10 +61,28 @@
 		gap: 2.5rem;
 		align-items: center;
 	}
+
+	.navItem {
+		font-size: 0.875rem;
+		letter-spacing: 2.35px;
+	}
+
+	.navItem a span {
+		display: none;
+	}
 }
 
 @media (min-width: 1024px) {
 	.navMenu {
 		padding-inline: 7.75rem 10.25rem;
+	}
+
+	.navItem {
+		font-size: 1rem;
+		letter-spacing: 2.7px;
+	}
+
+	.navItem a span {
+		display: inline;
 	}
 }

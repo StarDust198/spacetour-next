@@ -2,7 +2,6 @@ import { NavMenuProps } from './NavMenu.props';
 import styles from './NavMenu.module.css';
 import { FC } from 'react';
 import cn from 'classnames';
-import { NavText } from '../NavText/NavText';
 
 export const NavMenu: FC<NavMenuProps> = ({
   position = 'visible',
@@ -18,31 +17,23 @@ export const NavMenu: FC<NavMenuProps> = ({
     >
       <ul className={styles.navList}>
         <li className={styles.navItem}>
-          <a href="#">
-            <NavText place={'menu'}>
-              <em>00</em>home
-            </NavText>
+          <a href="/">
+            <span aria-hidden>00</span>home
           </a>
         </li>
         <li className={styles.navItem}>
-          <a href="#">
-            <NavText place={'menu'}>
-              <em>01</em>destination
-            </NavText>
+          <a href="/destination">
+            <span aria-hidden>01</span>destination
           </a>
         </li>
         <li className={styles.navItem}>
-          <a href="#">
-            <NavText place={'menu'}>
-              <em>02</em>crew
-            </NavText>
+          <a href="/crew">
+            <span aria-hidden>02</span>crew
           </a>
         </li>
         <li className={styles.navItem}>
-          <a href="#">
-            <NavText place={'menu'}>
-              <em>03</em>technology
-            </NavText>
+          <a href="/technology">
+            <span aria-hidden>03</span>technology
           </a>
         </li>
       </ul>

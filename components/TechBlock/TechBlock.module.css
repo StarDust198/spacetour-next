@@ -1,61 +1,13 @@
-.planetBlock {
-	max-width: 21rem;
+.techBlock {
+	text-align: center;
 }
 
-.divider {
-	margin-top: 2rem;
-}
-
-.planetInfo {
-	display: grid;
-}
-
-.planetInfoBlock {
-	margin-top: 2rem;
-}
-
-.planetSubInfo {
-	margin-top: 0.75rem;
-}
-
-@media (min-width: 640px) {
-	.planetBlock {
-		max-width: 36rem;
-	}
-
-	.planetDescription {
-		margin-top: 0.5rem;
-	}
-
-	.divider {
-		margin-top: 3rem;
-	}
-
-	.planetInfo {
-		grid-template-columns: repeat(2, 1fr);
-		gap: 0.5rem;
-		justify-content: center;
-	}
-
-	.planetInfoBlock {
-		margin-top: 1.75rem;
-	}
+.techDescription {
+	margin-top: 1rem;
 }
 
 @media (min-width: 1024px) {
-	.planetBlock {
-		max-width: 28rem;
-	}
-
-	.planetDescription {
-		margin-top: 1rem;
-	}
-
-	.divider {
-		margin-top: 3.5rem;
-	}
-
-	.planetInfo {
-		justify-content: start;
+	.techBlock {
+		text-align: left;
 	}
 }

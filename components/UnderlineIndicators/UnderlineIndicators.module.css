@@ -10,14 +10,16 @@
 	border: none;
 	border-bottom: 3px solid transparent;
 	background: none;
-
+	font-family: var(--ff-sans-cond);
+	font-size: 0.875rem;
+	line-height: 1.15;
+	letter-spacing: 2.35px;
+	text-transform: uppercase;
+	color: hsl(var(--clr-light));
 }
 
 .underlineButton[aria-selected="true"] {
 	border-bottom: 3px solid hsl(var(--clr-white));
-}
-
-.underlineButton[aria-selected="true"] div {
 	color: hsl(var(--clr-white));
 }
 
@@ -33,6 +35,8 @@
 
 	.underlineButton {
 		padding-bottom: 0.75rem;
+		font-size: 1rem;
+		letter-spacing: 2.35px;
 	}
 }
 
