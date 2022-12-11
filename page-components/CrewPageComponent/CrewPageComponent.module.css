@@ -4,7 +4,6 @@
 		". crewImage ."
 		". crewNav ."
 		". crewBlock .";
-	--row-gap: max(2rem, 3vh);
 	align-content: start;
 }
 
@@ -32,24 +31,6 @@
 	grid-area: crewBlock;
 }
 
-.bg {
-	height: 100vh;
-	position: absolute;
-	z-index: -10;
-	top:0;
-	left:0;
-	bottom:0;
-	right: 0;
-}
-
-.bgTablet {
-	display: none;
-}
-
-.bgDesktop {
-	display: none;
-}
-
 @media (min-width: 640px) {
 	.wrapper {
 		grid-template-areas: 
@@ -70,30 +51,25 @@
 	.divider {
 		display: none;
 	}
-
-	.bgMobile {
-		display: none;
-	}
-
-	.bgTablet {
-		display: block;
-	}
 }
 
 @media (min-width: 1024px) {
 	.wrapper {
-		--row-gap: 0;
 		grid-template-areas: 
 			". pageTitle crewImage ."
 			". crewBlock crewImage ."
-			". crewNav crewImage .";
+			". crewNav crewImage ."
+			". . . . ";
 		--center-columns: minmax(0, 28rem) minmax(0, 36rem);
-		grid-template-rows: min-content;
+		grid-template-rows: 5rem auto 5rem auto;
+	}
+
+	.divider {
+		display: block;
 	}
 
 	.crewNav {
 		place-self: start;
-		/* margin-block: min(10vh, 5rem); */
 	}
 
 	.crewBlock {
@@ -101,19 +77,11 @@
 		justify-self: start;
 		align-self: end;
 		margin-bottom: 3rem;
-		/* margin-top: 15vh; */
 	}
 
 	.crewImage {
-		left: calc(5vw - 1rem);
-		align-self: stretch;
-	}
-
-	.bgTablet {
-		display: none;
-	}
-
-	.bgDesktop {
-		display: block;
+		width: calc(100% + 5vw);
+		left: calc(2.5vw);
+		align-self: end;
 	}
 }

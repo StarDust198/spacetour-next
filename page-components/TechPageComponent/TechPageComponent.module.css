@@ -27,34 +27,23 @@
 .techMain {
 	grid-area: techMain;
  	display: grid;
-	gap: 1.5rem;
-}
-
-.techNav {
-	/* grid-area: techNav; */
-}
-
-.techBlock {
-	/* grid-area: techBlock; */
+	gap: var(--row-gap);
 }
 
 @media (min-width: 640px) {
-	.wrapper {
-
-	}
-
 	.techMain {
 		gap: 2.5rem;
+		align-self: start;
 	}
 }
 
 @media (min-width: 1024px) {
 	.wrapper {
 		--center-columns: 38rem minmax(0, 26rem);
-		grid-template-rows: min-content;
 		grid-template-areas: 
 			". pageTitle pageTitle ."
 			". techMain techImage .";
+			grid-template-rows: 5rem auto;
 	}
 
 	.techImage {
@@ -72,6 +61,7 @@
 	}
 
 	.techMain {
+		align-self: auto;
 		justify-self: start;
 		gap: 5rem;
 		grid-template-columns: 5rem 28rem;

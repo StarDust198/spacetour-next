@@ -3,9 +3,6 @@ import styles from './HomePageComponent.module.css';
 import { FC } from 'react';
 import cn from 'classnames';
 import { Heading, HomeButton, P } from '../../components';
-// import bgMobile from '../../assets/home/background-home-mobile.jpg';
-// import bgTablet from '../../assets/home/background-home-tablet.jpg';
-// import bgDesktop from '../../assets/home/background-home-desktop.jpg';
 import Image from 'next/image';
 
 export const HomePageComponent: FC<HomePageComponentProps> = ({

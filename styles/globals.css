@@ -110,11 +110,13 @@ input, button, textarea, select {
 /* grid */
 
 .gridContainer {
-  row-gap: var(--row-gap, max(2rem, 5vh));
+  --row-gap: max(2rem, 5vh);
+  row-gap: var(--row-gap);
   display: grid;
   text-align: center;
   place-items: center;
   padding-bottom: 3rem;
+  align-content: start;
   grid-template-columns: minmax(1.5rem, 1fr) minmax(0, 20.5rem) minmax(1.5rem, 1fr);
 }
 
@@ -125,7 +127,9 @@ input, button, textarea, select {
 
 @media (min-width: 640px) {
   .gridContainer {
-    grid-template-columns: minmax(2.5rem, 1fr) minmax(0, var(--center-width, 28.25rem)) minmax(2.5rem, 1fr);
+    --center-width: 28.25rem;
+    align-content: unset;
+    grid-template-columns: minmax(2.5rem, 1fr) minmax(0, var(--center-width)) minmax(2.5rem, 1fr);
   }
 
   .pageTitle {

@@ -2,6 +2,7 @@
 	grid-template-areas:
 		". homeBlock ."
 		". homeButton .";
+	align-content: unset;
 }
 
 .homeDescription {

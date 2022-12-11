@@ -35,7 +35,7 @@
 	}
 
 	.divider {
-		margin-top: 3rem;
+		margin-top: max(3rem, 5vh);
 	}
 
 	.planetInfo {
@@ -45,7 +45,7 @@
 	}
 
 	.planetInfoBlock {
-		margin-top: 1.75rem;
+		margin-top: max(1.75rem, 3vh);
 	}
 }
 
@@ -61,5 +61,9 @@
 
 	.planetInfo {
 		justify-content: start;
+	}
+
+	.planetInfoBlock {
+		margin-top: 1.75rem;
 	}
 }
