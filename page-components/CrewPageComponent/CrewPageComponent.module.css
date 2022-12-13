@@ -1,13 +1,3 @@
-.wrapper {
-	grid-template-areas:
-		"pageTitle pageTitle pageTitle"
-		". crewImage ."
-		". crewNav ."
-		". crewBlock .";
-
-	align-content: start;
-}
-
 .crewImage {
 	position: relative;
 
@@ -34,17 +24,6 @@
 }
 
 @media (min-width: 640px) {
-	.wrapper {
-		align-content: unset;
-
-		padding-bottom: 0;
-		grid-template-areas:
-			"pageTitle pageTitle pageTitle"
-			". crewBlock ."
-			". crewNav ."
-			". crewImage .";
-	}
-
 	.crewImage {
 		align-self: end;
 		aspect-ratio: 1;
@@ -58,16 +37,6 @@
 }
 
 @media (min-width: 1024px) {
-	.wrapper {
-		--center-columns: minmax(0, 28rem) minmax(0, 36rem);
-		grid-template-areas:
-			". pageTitle crewImage ."
-			". crewBlock crewImage ."
-			". crewNav crewImage ."
-			". . . . ";
-		grid-template-rows: 5rem auto 5rem auto;
-	}
-
 	.divider {
 		display: block;
 	}

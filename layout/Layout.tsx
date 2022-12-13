@@ -3,9 +3,14 @@ import styles from './Layout.module.css';
 import { FC, useRef, useState, KeyboardEvent } from 'react';
 import cn from 'classnames';
 import { Header } from './Header/Header';
+import { AnimatePresence, motion } from 'framer-motion';
+import { variantsMain } from '../helpers/helpers';
+import { useRouter } from 'next/router';
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
   const [showSkip, setShowSkip] = useState<boolean>(false);
+  const router = useRouter();
+
   const bodyRef = useRef<HTMLDivElement>(null);
 
   const onSkip = (e: KeyboardEvent): void => {
@@ -29,9 +34,24 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
         Skip to content
       </a>
       <Header className={styles.header} />
-      {/* <main className={styles.body} tabIndex={0} ref={bodyRef} role="main"> */}
-      {children}
-      {/* </main> */}
+      <AnimatePresence mode="wait">
+        <motion.main
+          key={router.asPath}
+          initial="hidden"
+          animate="enter"
+          exit="exit"
+          transition={{ duration: 1 }}
+          variants={variantsMain}
+          className={cn(styles.gridContainer, {
+            [styles.gridContainerHome]: router.asPath === '/',
+            [styles.gridContainerDestination]: router.asPath === '/destination',
+            [styles.gridContainerCrew]: router.asPath === '/crew',
+            [styles.gridContainerTech]: router.asPath === '/technology',
+          })}
+        >
+          {children}
+        </motion.main>
+      </AnimatePresence>
     </div>
   );
 };

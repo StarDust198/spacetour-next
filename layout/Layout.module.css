@@ -9,6 +9,49 @@
 	grid-template-rows: auto 1fr;
 }
 
+.gridContainer {
+	display: grid;
+	align-content: start;
+
+	padding-bottom: 3rem;
+
+	text-align: center;
+	row-gap: max(2rem, 5vh);
+	place-items: center;
+	grid-template-columns: minmax(1.5rem, 1fr) minmax(0, 20.5rem) minmax(1.5rem, 1fr);
+}
+
+.gridContainerHome {
+	grid-template-areas:
+		". homeBlock ."
+		". homeButton .";
+
+	align-content: unset;
+}
+
+.gridContainerDestination {
+	grid-template-areas:
+		"pageTitle pageTitle pageTitle"
+		"planetImage planetImage planetImage"
+		". planetNav ."
+		". planetBlock .";
+}
+
+.gridContainerCrew {
+	grid-template-areas:
+		"pageTitle pageTitle pageTitle"
+		". crewImage ."
+		". crewNav ."
+		". crewBlock .";
+}
+
+.gridContainerTech {
+	grid-template-areas:
+		"pageTitle pageTitle pageTitle"
+		"techImage techImage techImage"
+		". techMain .";
+}
+
 .skipLink {
 	position: absolute;
 	z-index: 9999;
@@ -32,11 +75,76 @@
 		padding-top: 0;
 		gap: 2.5rem;
 	}
+
+	.gridContainer {
+		--center-width: 28.25rem;
+		align-content: unset;
+		grid-template-columns: minmax(2.5rem, 1fr) minmax(0, var(--center-width)) minmax(2.5rem, 1fr);
+	}
+
+	.gridContainerDestination {
+		--center-width: 36rem;
+	}
+
+	.gridContainerCrew {
+		padding-bottom: 0;
+		grid-template-areas:
+			"pageTitle pageTitle pageTitle"
+			". crewBlock ."
+			". crewNav ."
+			". crewImage .";
+	}
 }
 
 @media (min-width: 1024px) {
 	.wrapper {
 		padding-top: 2.5rem;
 		gap: 4.75rem;
+	}
+
+	.gridContainer {
+		row-gap: 0;
+		--center-columns: repeat(2, minmax(0, 32rem));
+		column-gap: 5vw;
+
+		text-align: left;
+		grid-template-columns: minmax(1rem, 1fr) var(--center-columns) minmax(1rem, 1fr);
+	}
+
+	.gridContainer p {
+		max-width: 43ch;
+	}
+
+	.gridContainerHome {
+		align-items: end;
+
+		padding-bottom: max(6rem, 15vh);
+		grid-template-areas: ". homeBlock homeButton .";
+	}
+
+	.gridContainerDestination {
+		--center-columns: minmax(0, 36rem) minmax(0, 28rem);
+		grid-template-areas:
+			". pageTitle planetNav ."
+			". planetImage planetBlock .";
+		grid-template-rows: minmax(5rem, auto);
+	}
+
+	.gridContainerCrew {
+		--center-columns: minmax(0, 28rem) minmax(0, 36rem);
+		grid-template-areas:
+			". pageTitle crewImage ."
+			". crewBlock crewImage ."
+			". crewNav crewImage ."
+			". . . . ";
+		grid-template-rows: 5rem auto 5rem auto;
+	}
+
+	.gridContainerTech {
+		--center-columns: 38rem minmax(0, 26rem);
+		grid-template-areas:
+			". pageTitle pageTitle ."
+			". techMain techImage .";
+		grid-template-rows: 5rem auto;
 	}
 }

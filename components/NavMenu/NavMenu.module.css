@@ -1,6 +1,6 @@
 .navMenu {
 	position: fixed;
-	z-index: 5;
+	z-index: 10;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -22,22 +22,39 @@
 
 .navList {
 	display: grid;
-	gap: 2rem;
+	gap: 3vh;
 	grid-template-columns: 1fr;
 }
 
-.navItem {
+.navItem a {
+	display: block;
+	padding-block: 0.5rem;
 	letter-spacing: 2.7px;
 	text-transform: uppercase;
 
 	font-family: var(--ff-sans-cond);
 	font-size: 1rem;
 	line-height: 1.15;
+	cursor: pointer;
+	text-decoration: none;
 }
 
 .navItem a {
+	display: block;
+	padding-block: 0.5rem;
+	letter-spacing: 2.7px;
+	text-transform: uppercase;
+
+	font-family: var(--ff-sans-cond);
+	font-size: 1rem;
+	line-height: 1.15;
 	cursor: pointer;
 	text-decoration: none;
+}
+
+.navItem a:hover {
+	padding-bottom: calc(0.5rem - 3px);
+	border-bottom: 3px solid hsl(var(--clr-white)/ 0.5);
 }
 
 .navItem a span {
@@ -62,7 +79,8 @@
 		position: relative;
 
 		width: unset;
-		height: 100%;
+		transition: unset;
+		height: unset;
 		padding: 0 3rem;
 	}
 
@@ -72,16 +90,19 @@
 
 	.navList {
 		align-items: center;
-
-		height: 100%;
 		grid-template-columns: repeat(4, auto);
 		gap: 2.5rem;
 	}
 
-	.navItem {
+	.navItem a {
 		letter-spacing: 2.35px;
 
 		font-size: 0.875rem;
+		padding-block: 2.5rem;
+	}
+
+	.navItem a:hover {
+		padding-bottom: calc(2.5rem - 3px);
 	}
 
 	.navItem a span {
@@ -107,7 +128,7 @@
 		padding-inline: 8vw 12vw;
 	}
 
-	.navItem {
+	.navItem a {
 		letter-spacing: 2.7px;
 
 		font-size: 1rem;

@@ -1,13 +1,3 @@
-.wrapper {
-	grid-template-areas:
-		"pageTitle pageTitle pageTitle"
-		"planetImage planetImage planetImage"
-		". planetNav ."
-		". planetBlock .";
-
-	align-content: start;
-}
-
 .planetImage {
 	position: relative;
 
@@ -27,11 +17,6 @@
 }
 
 @media (min-width: 640px) {
-	.wrapper {
-		--center-width: 36rem;
-		align-content: unset;
-	}
-
 	.planetImage {
 		width: max(40%, 25vh);
 	}
@@ -42,14 +27,6 @@
 }
 
 @media (min-width: 1024px) {
-	.wrapper {
-		--center-columns: minmax(0, 36rem) minmax(0, 28rem);
-		grid-template-areas:
-			". pageTitle planetNav ."
-			". planetImage planetBlock .";
-		grid-template-rows: minmax(5rem, auto);
-	}
-
 	.planetNav {
 		justify-self: start;
 
