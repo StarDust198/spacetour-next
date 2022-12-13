@@ -17,7 +17,8 @@ const DestinationPage: NextPage<DestinationPageProps> = ({ destinations }) => {
   );
 };
 
-export default withLayout(DestinationPage);
+export default DestinationPage;
+// export default withLayout(DestinationPage);
 
 export const getStaticProps: GetStaticProps<
   DestinationPageProps

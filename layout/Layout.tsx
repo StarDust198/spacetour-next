@@ -4,7 +4,7 @@ import { FC, useRef, useState, KeyboardEvent } from 'react';
 import cn from 'classnames';
 import { Header } from './Header/Header';
 
-const Layout: FC<LayoutProps> = ({ children }) => {
+export const Layout: FC<LayoutProps> = ({ children }) => {
   const [showSkip, setShowSkip] = useState<boolean>(false);
   const bodyRef = useRef<HTMLDivElement>(null);
 

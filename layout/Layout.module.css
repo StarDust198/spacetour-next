@@ -1,21 +1,26 @@
 .wrapper {
-	display: grid;
-	gap: 1.5rem;
-	padding-top: 1.5rem;
-	grid-template-rows: auto 1fr;
-	min-height: 100vh;
 	position: relative;
+
+	display: grid;
+
+	min-height: 100vh;
+	padding-top: 1.5rem;
+	gap: 1.5rem;
+	grid-template-rows: auto 1fr;
 }
 
 .skipLink {
 	position: absolute;
 	z-index: 9999;
-	background: hsl( var(--clr-white) );
-	color: hsl( var(--clr-dark) ); 
-	padding: .5em 1em;
-	margin-inline: auto;
-	transform: translateY(-100%);
+
+	padding: 0.5em 1em;
+
 	transition: transform 250ms ease-in;
+	transform: translateY(-100%);
+
+	color: hsl(var(--clr-dark));
+	background: hsl(var(--clr-white));
+	margin-inline: auto;
 }
 
 .showSkipLink {

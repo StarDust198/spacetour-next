@@ -2,6 +2,7 @@
 	grid-template-areas:
 		". homeBlock ."
 		". homeButton .";
+
 	align-content: unset;
 }
 
@@ -26,9 +27,9 @@
 @media (min-width: 1024px) {
 	.wrapper {
 		align-items: end;
+
 		padding-bottom: max(6rem, 15vh);
-		grid-template-areas: 
-			". homeBlock homeButton .";
+		grid-template-areas: ". homeBlock homeButton .";
 	}
 
 	.homeBlock {
@@ -37,6 +38,7 @@
 
 	.homeButton {
 		justify-self: end;
+
 		margin-right: 3rem;
 	}
 }

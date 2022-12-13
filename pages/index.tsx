@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { withLayout } from '../layout/Layout';
 import { HomePageComponent } from '../page-components';
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
     <>
       <Head>
@@ -15,4 +15,5 @@ const Home: NextPage = () => {
   );
 };
 
-export default withLayout(Home);
+export default HomePage;
+// export default withLayout(HomePage);

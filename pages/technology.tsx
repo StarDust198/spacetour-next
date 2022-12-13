@@ -17,7 +17,8 @@ const TechPage: NextPage<TechPageProps> = ({ technology }) => {
   );
 };
 
-export default withLayout(TechPage);
+export default TechPage;
+// export default withLayout(TechPage);
 
 export const getStaticProps: GetStaticProps<TechPageProps> = async () => {
   const { data: technology } = await axios.get<TechItem[]>(

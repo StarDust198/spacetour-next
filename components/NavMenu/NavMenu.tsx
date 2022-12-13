@@ -1,42 +1,80 @@
 import { NavMenuProps } from './NavMenu.props';
 import styles from './NavMenu.module.css';
-import { FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import cn from 'classnames';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import useResizeObserver from 'use-resize-observer';
+
+interface page {
+  title: string;
+  href: string;
+}
+
+const pages: page[] = [
+  {
+    title: 'home',
+    href: '/',
+  },
+  {
+    title: 'destination',
+    href: '/destination',
+  },
+  {
+    title: 'crew',
+    href: '/crew',
+  },
+  {
+    title: 'technology',
+    href: '/technology',
+  },
+];
 
 export const NavMenu: FC<NavMenuProps> = ({
   position = 'visible',
   className,
   ...props
 }) => {
+  const router = useRouter();
+
+  const { ref: navRef, width = 1 } = useResizeObserver<HTMLLIElement>({
+    box: 'border-box',
+  });
+
+  const liRef = useRef<HTMLLIElement>(null);
+  const underlineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (underlineRef.current && liRef.current) {
+      underlineRef.current.style.left = `${liRef.current.offsetLeft}px`;
+      underlineRef.current.style.width = `${liRef.current.offsetWidth}px`;
+    }
+    console.log(width);
+  }, [router, width]);
+
+  const mappedLinks = pages.map((page, i) => (
+    <li
+      key={page.title}
+      className={styles.navItem}
+      ref={router.asPath === page.href ? liRef : null}
+    >
+      <Link href={page.href}>
+        <span aria-hidden>{`0${i}`}</span>
+        {page.title}
+      </Link>
+    </li>
+  ));
+
   return (
     <nav
       className={cn(styles.navMenu, className, {
         [styles.hidden]: position === 'hidden',
       })}
+      ref={navRef}
       {...props}
     >
-      <ul className={styles.navList}>
-        <li className={styles.navItem}>
-          <a href="/">
-            <span aria-hidden>00</span>home
-          </a>
-        </li>
-        <li className={styles.navItem}>
-          <a href="/destination">
-            <span aria-hidden>01</span>destination
-          </a>
-        </li>
-        <li className={styles.navItem}>
-          <a href="/crew">
-            <span aria-hidden>02</span>crew
-          </a>
-        </li>
-        <li className={styles.navItem}>
-          <a href="/technology">
-            <span aria-hidden>03</span>technology
-          </a>
-        </li>
-      </ul>
+      <ul className={styles.navList}>{mappedLinks}</ul>
+      <div className={styles.underline} ref={underlineRef} />
     </nav>
   );
 };

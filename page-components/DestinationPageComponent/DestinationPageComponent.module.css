@@ -1,16 +1,18 @@
 .wrapper {
-	grid-template-areas: 
+	grid-template-areas:
 		"pageTitle pageTitle pageTitle"
 		"planetImage planetImage planetImage"
 		". planetNav ."
 		". planetBlock .";
+
 	align-content: start;
 }
 
 .planetImage {
+	position: relative;
+
 	width: 45%;
 	aspect-ratio: 1;
-	position: relative;
 	grid-area: planetImage;
 }
 
@@ -20,6 +22,7 @@
 
 .planetBlock {
 	grid-area: planetBlock;
+
 	margin-top: -1rem;
 }
 
@@ -41,7 +44,7 @@
 @media (min-width: 1024px) {
 	.wrapper {
 		--center-columns: minmax(0, 36rem) minmax(0, 28rem);
-		grid-template-areas: 
+		grid-template-areas:
 			". pageTitle planetNav ."
 			". planetImage planetBlock .";
 		grid-template-rows: minmax(5rem, auto);
@@ -49,17 +52,21 @@
 
 	.planetNav {
 		justify-self: start;
+
 		align-self: end;
 	}
 
 	.planetBlock {
 		justify-self: start;
+
 		align-self: start;
+
 		margin-top: min(3vh, 2rem);
 	}
 
 	.planetImage {
 		align-self: start;
+
 		width: 80%;
 	}
 }

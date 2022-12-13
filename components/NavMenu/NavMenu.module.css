@@ -1,18 +1,23 @@
 .navMenu {
 	position: fixed;
-	width: 15.875rem;
+	z-index: 5;
+	top: 0;
+	right: 0;
+	bottom: 0;
+
+	overflow: hidden;
+
+	width: 65vw;
 	height: 100vh;
 	padding: max(15vh, 7.375rem) 2rem;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background-color: hsl(var(--clr-dark) / 0.95);
+
 	transition: right 0.5s ease-in-out;
-	z-index: 5;
+
+	background-color: hsl(var(--clr-dark) / 95%);
 }
 
 .hidden {
-	right: -15.875rem;
+	right: -65vw;
 }
 
 .navList {
@@ -22,12 +27,12 @@
 }
 
 .navItem {
+	letter-spacing: 2.7px;
 	text-transform: uppercase;
+
+	font-family: var(--ff-sans-cond);
 	font-size: 1rem;
 	line-height: 1.15;
-	letter-spacing: 2.7px;
-	font-family: var(--ff-sans-cond);
-	
 }
 
 .navItem a {
@@ -36,39 +41,64 @@
 }
 
 .navItem a span {
-	font-weight: 700;
 	margin-right: 0.75rem;
+
+	font-weight: 700;
+}
+
+.underline {
+	display: none;
 }
 
 @supports (backdrop-filter: blur(30px)) {
 	.navMenu {
-		background-color: hsl(var(--clr-dark) / 0.3);
+		background-color: hsl(var(--clr-dark) / 30%);
 		backdrop-filter: blur(30px);
 	}
 }
 
 @media (min-width: 640px) {
 	.navMenu {
-		position: static;
+		position: relative;
+
+		width: unset;
 		height: 100%;
 		padding: 0 3rem;
-		width: unset;
+	}
+
+	.hidden {
+		right: 0;
 	}
 
 	.navList {
+		align-items: center;
+
 		height: 100%;
 		grid-template-columns: repeat(4, auto);
 		gap: 2.5rem;
-		align-items: center;
 	}
 
 	.navItem {
-		font-size: 0.875rem;
 		letter-spacing: 2.35px;
+
+		font-size: 0.875rem;
 	}
 
 	.navItem a span {
 		display: none;
+	}
+
+	.underline {
+		position: absolute;
+		bottom: 0;
+
+		display: block;
+
+		height: 3px;
+
+		transition: all 0.5s ease-in;
+
+		background-color: hsl(var(--clr-white));
 	}
 }
 
@@ -78,8 +108,9 @@
 	}
 
 	.navItem {
-		font-size: 1rem;
 		letter-spacing: 2.7px;
+
+		font-size: 1rem;
 	}
 
 	.navItem a span {

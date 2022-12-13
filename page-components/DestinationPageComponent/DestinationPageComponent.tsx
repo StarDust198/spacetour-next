@@ -3,9 +3,6 @@ import styles from './DestinationPageComponent.module.css';
 import { FC, useState } from 'react';
 import cn from 'classnames';
 import { Heading, PlanetBlock, UnderlineIndicators } from '../../components';
-// import bgMobile from '../../assets/destination/background-destination-mobile.jpg';
-// import bgTablet from '../../assets/destination/background-destination-tablet.jpg';
-// import bgDesktop from '../../assets/destination/background-destination-desktop.jpg';
 import Image from 'next/image';
 
 export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({

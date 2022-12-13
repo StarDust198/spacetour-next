@@ -10,7 +10,6 @@ export const CrewPageComponent: FC<CrewPageComponentProps> = ({
   crew,
 }) => {
   const [crewMember, setCrewMember] = useState<number>(0);
-  // console.log(crew[0].img);
 
   return (
     <>

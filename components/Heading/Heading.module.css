@@ -1,13 +1,16 @@
 .heading {
-	text-transform: uppercase;
 	text-align: center;
-	font-family: var(--ff-serif);
-	color: hsl(var(--clr-white) );
 	white-space: nowrap;
+	text-transform: uppercase;
+
+	color: hsl(var(--clr-white));
+
+	font-family: var(--ff-serif);
 }
 
 .heading em {
 	display: block;
+
 	font-style: normal;
 }
 
@@ -16,17 +19,22 @@
 }
 
 .home {
+	letter-spacing: 2.7px;
+
+	color: hsl(var(--clr-light));
+
+	font-family: var(--ff-sans-cond);
+
 	/* font-size: 1rem; */
 	font-size: clamp(1rem, 4vw, 1.5rem);
 	line-height: 1.2;
-	font-family: var(--ff-sans-cond);
-	color: hsl(var(--clr-light));
-	letter-spacing: 2.7px;
 }
 
 .home em {
-	font-family: var(--ff-serif);
 	margin-top: 1rem;
+
+	font-family: var(--ff-serif);
+
 	/* font-size: 5rem; */
 	font-size: clamp(5rem, 20vw, 8rem);
 	line-height: 1.25;
@@ -43,52 +51,65 @@
 }
 
 .pageOther em {
+	margin-bottom: 0.5rem;
+
+	color: hsl(var(--clr-light)/ 50%);
+
 	font-size: 1rem;
 	line-height: 1.125;
-	margin-bottom: 0.5rem;
-	color: hsl(var(--clr-light)/ 0.5);
 }
 
 .pageOther span {
 	margin-bottom: 0.5rem;
+
+	letter-spacing: 2.35px;
+
+	color: hsl(var(--clr-light));
+
 	font-family: var(--ff-sans-cond);
 	font-size: 0.875rem;
-	letter-spacing: 2.35px;
-	color: hsl(var(--clr-light));
 	line-height: 1.2;
 }
 
 .sub {
+	letter-spacing: 2.35px;
+
+	color: hsl(var(--clr-light));
+
+	font-family: var(--ff-sans-cond);
 	font-size: 0.875em;
 	line-height: 1.2;
-	letter-spacing: 2.35px;
-	font-family: var(--ff-sans-cond);
-	color: hsl(var(--clr-light) );
 }
 
 .nav {
-	font-family: var(--ff-sans-cond);
-	line-height: 1.2;
-	font-size: 1rem;
 	letter-spacing: 2.7px;
+
+	font-family: var(--ff-sans-cond);
+	font-size: 1rem;
+	line-height: 1.2;
 }
 
 .nav span {
-	margin-right: 1rem;
-	color: hsl(var(--clr-white) / 0.25);
-	font-weight: 700;
 	display: inline;
+
+	margin-right: 1rem;
+
+	color: hsl(var(--clr-white) / 25%);
+
+	font-weight: 700;
 }
 
 @media (min-width: 640px) {
 	.home {
+		letter-spacing: 3.375px;
+
 		font-size: 1.5rem;
 		line-height: 1.2;
-		letter-spacing: 3.375px;
 	}
 
 	.home em {
 		margin-top: 1.5rem;
+
 		font-size: 9.375rem;
 		line-height: 1;
 	}
@@ -109,14 +130,17 @@
 
 	.pageOther span {
 		margin-bottom: 1rem;
-		font-size: 1rem;
+
 		letter-spacing: 2.7px;
+
+		font-size: 1rem;
 	}
 
 	.nav {
 		text-align: left;
-		font-size: 1.25rem;
 		letter-spacing: 3.375px;
+
+		font-size: 1.25rem;
 	}
 }
 
@@ -126,8 +150,9 @@
 	}
 
 	.home {
-		font-size: 1.75rem;
 		letter-spacing: 4.725px;
+
+		font-size: 1.75rem;
 	}
 
 	.home em {
@@ -144,14 +169,16 @@
 	}
 
 	.pageOther em {
+		margin-bottom: 1rem;
+
 		font-size: 2rem;
 		line-height: 1.15;
-		margin-bottom: 1rem;
 	}
 
 	.nav {
-		font-size: 1.75rem;
 		letter-spacing: 4.725px;
+
+		font-size: 1.75rem;
 	}
 
 	.nav span {

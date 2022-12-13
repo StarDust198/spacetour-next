@@ -17,7 +17,8 @@ const CrewPage: NextPage<CrewPageProps> = ({ crew }) => {
   );
 };
 
-export default withLayout(CrewPage);
+export default CrewPage;
+// export default withLayout(CrewPage);
 
 export const getStaticProps: GetStaticProps<CrewPageProps> = async () => {
   const { data: crew } = await axios.get<CrewItem[]>(
