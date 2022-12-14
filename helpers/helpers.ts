@@ -1,4 +1,4 @@
-export const variantsMain = {
+export const pageAnimation = {
   hidden: {
     opacity: 0,
     scale: 0.9,
@@ -16,21 +16,104 @@ export const variantsMain = {
   },
 };
 
-export const variantsBg = {
+export const homeBlockAnimation = {
+  hidden: (custom: string) => ({
+    [custom]: -100,
+    opacity: 0,
+  }),
+  visible: (custom: string) => ({
+    [custom]: 0,
+    opacity: 1,
+  }),
+};
+
+export const homeButtonAnimation = {
+  hidden: (custom: string) => ({
+    [custom]: 100,
+    opacity: 0,
+  }),
+  visible: (custom: string) => ({
+    [custom]: 0,
+    opacity: 1,
+  }),
+};
+
+const transitionStyle = {
+  duration: 1,
+  type: 'tween',
+};
+
+export const fadeAnimation = {
+  hidden: {
+    filter: 'blur(10px)',
+    scale: 1.15,
+    opacity: 0,
+    transition: transitionStyle,
+  },
+  visible: {
+    filter: 'blur(0px)',
+    scale: 1,
+    opacity: 1,
+    transition: { ...transitionStyle, delay: 0.5 },
+  },
+};
+
+export const horizontalAnimation = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? '50%' : direction < 0 ? '-50%' : 0,
+    opacity: 0,
+    transition: transitionStyle,
+  }),
+  exit: (direction: number) => ({
+    x: direction >= 0 ? '-50%' : '50%',
+    opacity: 0,
+    transition: transitionStyle,
+  }),
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: transitionStyle,
+  },
+};
+
+export const bothDirectionAnimation = {
+  enter: (arr: [number, string]) => {
+    return {
+      [arr[1]]: arr[0] < 0 ? '50%' : arr[0] > 0 ? '-50%' : 0,
+      opacity: 0,
+      transition: transitionStyle,
+    };
+  },
+  exit: (arr: [number, string]) => {
+    return {
+      [arr[1]]: arr[0] > 0 ? '50%' : arr[0] < 0 ? '-50%' : 0,
+      opacity: 0,
+      transition: transitionStyle,
+    };
+  },
+  visible: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: transitionStyle,
+  },
+};
+
+export const bgAnimation = {
   hidden: {
     opacity: 0,
     scale: 1.2,
-    // filter: 'blur(30px)',
+    filter: 'blur(10px)',
   },
   enter: {
     opacity: 1,
     scale: 1,
-    // filter: 'blur(0px)',
+    filter: 'blur(0px)',
   },
   exit: {
     opacity: 0,
     scale: 1.2,
-    // filter: 'blur(30px)',
+    filter: 'blur(10px)',
   },
 };
 

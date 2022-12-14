@@ -1,7 +1,10 @@
 import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 
 export interface HomeButtonProps
-  extends DetailedHTMLProps<
-    AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
+  extends Omit<
+    DetailedHTMLProps<
+      AnchorHTMLAttributes<HTMLAnchorElement>,
+      HTMLAnchorElement
+    >,
+    'ref'
   > {}

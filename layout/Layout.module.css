@@ -10,13 +10,15 @@
 }
 
 .gridContainer {
+	overflow-x: hidden;
 	display: grid;
 	align-content: start;
+	--row-gap: max(2rem, 5vh);
 
 	padding-bottom: 3rem;
 
 	text-align: center;
-	row-gap: max(2rem, 5vh);
+	row-gap: var(--row-gap);
 	place-items: center;
 	grid-template-columns: minmax(1.5rem, 1fr) minmax(0, 20.5rem) minmax(1.5rem, 1fr);
 }

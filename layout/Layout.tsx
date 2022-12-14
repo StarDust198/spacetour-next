@@ -11,7 +11,7 @@ import {
 import cn from 'classnames';
 import { Header } from './Header/Header';
 import { AnimatePresence, motion } from 'framer-motion';
-import { pages, variantsMain } from '../helpers/helpers';
+import { pages, pageAnimation } from '../helpers/helpers';
 import { useRouter } from 'next/router';
 import { IAppContext } from '../interfaces/context.interface';
 import { useMediaQuery } from 'react-responsive';
@@ -91,7 +91,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
             animate="enter"
             exit="exit"
             transition={{ duration: 1 }}
-            variants={variantsMain}
+            variants={pageAnimation}
             ref={bodyRef}
             tabIndex={0}
             className={cn(styles.gridContainer, {

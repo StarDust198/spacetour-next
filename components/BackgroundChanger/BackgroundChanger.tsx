@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { AppContext } from '../../layout/Layout';
-import { variantsBg } from '../../helpers/helpers';
+import { bgAnimation } from '../../helpers/helpers';
 
 export const BackgroundChanger: FC<BackgroundChangerProps> = () => {
   const { pages, device, activePage } = useContext(AppContext);
@@ -30,7 +30,7 @@ export const BackgroundChanger: FC<BackgroundChangerProps> = () => {
         animate="enter"
         exit="exit"
         transition={{ duration: 1 }}
-        variants={variantsBg}
+        variants={bgAnimation}
         key={`bg-${device}-${activePage}`}
         className={styles.bg}
       >

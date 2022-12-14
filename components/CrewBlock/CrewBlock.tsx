@@ -1,24 +1,30 @@
 import { CrewBlockProps } from './CrewBlock.props';
 import styles from './CrewBlock.module.css';
-import { FC } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 import cn from 'classnames';
 import { Heading } from '../Heading/Heading';
 import { P } from '../P/P';
+import { motion } from 'framer-motion';
 
-export const CrewBlock: FC<CrewBlockProps> = ({
-  className,
-  title,
-  description,
-  rank,
-  ...props
-}) => {
-  return (
-    <div className={cn(styles.crewBlock, className)} {...props}>
-      <Heading className={styles.crewTitle} place="pageOther">
-        <em>{rank}</em>
-        {title}
-      </Heading>
-      <P className={styles.crewDescription}>{description}</P>
-    </div>
-  );
-};
+export const CrewBlock = motion(
+  forwardRef(
+    (
+      { className, title, description, rank, ...props }: CrewBlockProps,
+      ref: ForwardedRef<HTMLDivElement>
+    ) => {
+      return (
+        <article
+          className={cn(styles.crewBlock, className)}
+          ref={ref}
+          {...props}
+        >
+          <Heading className={styles.crewTitle} place="pageOther">
+            <em>{rank}</em>
+            {title}
+          </Heading>
+          <P className={styles.crewDescription}>{description}</P>
+        </article>
+      );
+    }
+  )
+);
