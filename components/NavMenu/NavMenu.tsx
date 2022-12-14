@@ -1,34 +1,11 @@
 import { NavMenuProps } from './NavMenu.props';
 import styles from './NavMenu.module.css';
-import { FC, useEffect, useRef } from 'react';
+import { FC, useContext, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useResizeObserver from 'use-resize-observer';
-
-interface page {
-  title: string;
-  href: string;
-}
-
-const pages: page[] = [
-  {
-    title: 'home',
-    href: '/',
-  },
-  {
-    title: 'destination',
-    href: '/destination',
-  },
-  {
-    title: 'crew',
-    href: '/crew',
-  },
-  {
-    title: 'technology',
-    href: '/technology',
-  },
-];
+import { AppContext } from '../../layout/Layout';
 
 export const NavMenu: FC<NavMenuProps> = ({
   position = 'visible',
@@ -36,6 +13,7 @@ export const NavMenu: FC<NavMenuProps> = ({
   ...props
 }) => {
   const router = useRouter();
+  const { pages } = useContext(AppContext);
 
   const { ref: navRef, width = 1 } = useResizeObserver<HTMLLIElement>({
     box: 'border-box',
@@ -49,7 +27,6 @@ export const NavMenu: FC<NavMenuProps> = ({
       underlineRef.current.style.left = `${liRef.current.offsetLeft}px`;
       underlineRef.current.style.width = `${liRef.current.offsetWidth}px`;
     }
-    console.log(width);
   }, [router, width]);
 
   const mappedLinks = pages.map((page, i) => (
@@ -59,7 +36,7 @@ export const NavMenu: FC<NavMenuProps> = ({
       ref={router.asPath === page.href ? liRef : null}
     >
       <Link href={page.href}>
-        <span aria-hidden>{`0${i}`}</span>
+        <span aria-hidden>{'0' + page._id}</span>
         {page.title}
       </Link>
     </li>

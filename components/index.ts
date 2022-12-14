@@ -9,3 +9,4 @@ export * from './NavMenu/NavMenu';
 export * from './PlanetBlock/PlanetBlock';
 export * from './CrewBlock/CrewBlock';
 export * from './TechBlock/TechBlock';
+export * from './BackgroundChanger/BackgroundChanger';

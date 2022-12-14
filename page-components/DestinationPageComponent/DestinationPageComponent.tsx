@@ -39,33 +39,6 @@ export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
         distance={destinations[planet].distance}
         time={destinations[planet].time}
       />
-
-      <div className="bg" key="destBg">
-        <Image
-          className="bgMobile"
-          src={'/assets/destination/background-destination-mobile.jpg'}
-          alt="background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-        <Image
-          className="bgTablet"
-          src={'/assets/destination/background-destination-tablet.jpg'}
-          alt="background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-        <Image
-          className="bgDesktop"
-          src={'/assets/destination/background-destination-desktop.jpg'}
-          alt="background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-      </div>
     </>
   );
 };

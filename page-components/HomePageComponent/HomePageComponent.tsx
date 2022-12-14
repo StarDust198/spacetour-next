@@ -23,33 +23,6 @@ export const HomePageComponent: FC<HomePageComponentProps> = ({
         </P>
       </div>
       <HomeButton className={styles.homeButton} />
-
-      <div className="bg" key="homeBg">
-        <Image
-          className="bgMobile"
-          src={'/assets/home/background-home-mobile.jpg'}
-          alt="background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-        <Image
-          className="bgTablet"
-          src={'/assets/home/background-home-tablet.jpg'}
-          alt="background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-        <Image
-          className="bgDesktop"
-          src={'/assets/home/background-home-desktop.jpg'}
-          alt="background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-      </div>
     </>
   );
 };

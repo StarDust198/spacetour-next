@@ -45,32 +45,6 @@ export const TechPageComponent: FC<TechPageComponentProps> = ({
           description={technology[techItem].description}
         />
       </div>
-      <div className="bg">
-        <Image
-          className="bgMobile"
-          src="/assets/technology/background-technology-mobile.jpg"
-          alt="background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-        <Image
-          className="bgTablet"
-          src="/assets/technology/background-technology-tablet.jpg"
-          alt="background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-        <Image
-          className="bgDesktop"
-          src="/assets/technology/background-technology-desktop.jpg"
-          alt="background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-      </div>
     </>
   );
 };
