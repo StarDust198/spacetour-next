@@ -7,9 +7,7 @@ import { fadeAnimation, horizontalAnimation } from '../../helpers/helpers';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
-  // className,
   destinations,
-  // ...props
 }) => {
   const [direction, setDirection] = useState<number>(0);
   const [planet, setPlanet] = useState<number>(0);
@@ -24,7 +22,7 @@ export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
   return (
     <>
       <Heading place="nav" className="pageTitle">
-        <span>01</span>pick your destination
+        <span aria-hidden>01</span>pick your destination
       </Heading>
       <AnimatePresence mode="wait">
         <motion.div
@@ -47,22 +45,26 @@ export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
         className={styles.planetNav}
         selected={planet}
         setSelected={changePlanet}
-        values={['moon', 'mars', 'europa', 'titan']}
+        values={destinations.map((item) => item.title)}
       />
-      <AnimatePresence mode="wait">
+      {destinations.map((item, i) => (
         <PlanetBlock
+          role="tabpanel"
           className={styles.planetBlock}
-          name={destinations[planet].title}
-          description={destinations[planet].description}
-          distance={destinations[planet].distance}
-          time={destinations[planet].time}
-          animate="visible"
+          name={item.title}
+          description={item.description}
+          distance={item.distance}
+          time={item.time}
+          animate={i === planet ? 'visible' : 'hidden'}
           initial="hidden"
           exit="hidden"
           variants={fadeAnimation}
-          key={`${planet}Block`}
+          key={`${item.title}Block`}
+          id={`${item.title}-tabpanel`}
+          tabIndex={i === planet ? 0 : -1}
+          aria-labelledby={`${item.title}-tab`}
         />
-      </AnimatePresence>
+      ))}
     </>
   );
 };

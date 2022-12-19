@@ -29,7 +29,7 @@ export const NavMenu: FC<NavMenuProps> = ({
     }
   }, [router, width]);
 
-  const mappedLinks = pages.map((page, i) => (
+  const mappedLinks = pages.map((page) => (
     <li
       key={page.title}
       className={styles.navItem}

@@ -19,10 +19,6 @@
 	background: none;
 }
 
-.logoBigIcon {
-	display: none;
-}
-
 @media (min-width: 640px) {
 	.header {
 		padding-inline: 2.5rem 0;
@@ -31,15 +27,6 @@
 		justify-content: end;
 
 		height: 6rem;
-	}
-
-	.logoIcon {
-		display: none;
-	}
-
-	.logoBigIcon {
-		display: block;
-		grid-column: start;
 	}
 
 	.menu {

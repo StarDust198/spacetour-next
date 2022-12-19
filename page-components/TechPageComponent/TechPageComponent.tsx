@@ -8,9 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { AppContext } from '../../layout/Layout';
 
 export const TechPageComponent: FC<TechPageComponentProps> = ({
-  // className,
   technology,
-  // ...props
 }) => {
   const [techItem, setTechItem] = useState<number>(0);
   const [direction, setDirection] = useState<number>(0);
@@ -26,7 +24,7 @@ export const TechPageComponent: FC<TechPageComponentProps> = ({
   return (
     <>
       <Heading place="nav" className="pageTitle">
-        <span>03</span>space launch 101
+        <span aria-hidden>03</span>space launch 101
       </Heading>
       {device && (
         <>
@@ -41,15 +39,13 @@ export const TechPageComponent: FC<TechPageComponentProps> = ({
               custom={[direction, device === 'desktop' ? 'y' : 'x']}
             >
               <Image
-                className={styles.techImageMobile}
+                className={styles.techImage}
                 alt={technology[techItem].title}
-                src={technology[techItem].img}
-                fill
-              />
-              <Image
-                className={styles.techImageDesktop}
-                alt={technology[techItem].title}
-                src={technology[techItem].imgDesktop}
+                src={
+                  device === 'desktop'
+                    ? technology[techItem].imgDesktop
+                    : technology[techItem].img
+                }
                 fill
               />
             </motion.div>
@@ -58,21 +54,33 @@ export const TechPageComponent: FC<TechPageComponentProps> = ({
             <NumberIndicators
               selected={techItem}
               setSelected={changeTechItem}
-              total={technology.length}
+              values={technology.map((item) => item.title)}
               className={styles.techNav}
+              orientation={device === 'desktop' ? 'y' : 'x'}
             />
             <AnimatePresence mode="wait">
-              <TechBlock
-                className={styles.techBlock}
-                name={technology[techItem].title}
-                description={technology[techItem].description}
-                animate="visible"
-                initial="enter"
-                exit="exit"
-                variants={bothDirectionAnimation}
-                key={`${techItem}TechBlock`}
-                custom={[direction, device === 'desktop' ? 'y' : 'x']}
-              />
+              {technology.map((item, i) => (
+                <TechBlock
+                  role="tabpanel"
+                  className={styles.techBlock}
+                  name={item.title}
+                  description={item.description}
+                  animate="visible"
+                  initial="enter"
+                  exit="exit"
+                  variants={bothDirectionAnimation}
+                  key={
+                    i === techItem
+                      ? `${item.title}VisibleBlock`
+                      : `${item.title}HiddenBlock`
+                  }
+                  custom={[direction, device === 'desktop' ? 'y' : 'x']}
+                  id={`${item.title}-tabpanel`}
+                  tabIndex={0}
+                  aria-labelledby={`${item.title}-tab`}
+                  hidden={i !== techItem}
+                />
+              ))}
             </AnimatePresence>
           </div>
         </>

@@ -84,10 +84,6 @@
 		padding: 0 3rem;
 	}
 
-	.hidden {
-		right: 0;
-	}
-
 	.navList {
 		align-items: center;
 		grid-template-columns: repeat(4, auto);

@@ -14,6 +14,10 @@
 	.crewBlock {
 		max-width: 28.5rem;
 	}
+
+	.crewDescription {
+		height: 7rem;
+	}
 }
 
 @media (min-width: 1024px) {

@@ -100,8 +100,10 @@
 
 @media (min-width: 1024px) {
 	.wrapper {
-		padding-top: 2.5rem;
-		gap: 4.75rem;
+		/* padding-top: 2.5rem; */
+		padding-top: 3vh;
+		/* gap: 4.75rem; */
+		gap: 5vh;
 	}
 
 	.gridContainer {
@@ -148,5 +150,6 @@
 			". pageTitle pageTitle ."
 			". techMain techImage .";
 		grid-template-rows: 5rem auto;
+		overflow-y: hidden;
 	}
 }

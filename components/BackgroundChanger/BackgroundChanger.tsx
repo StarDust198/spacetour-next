@@ -29,7 +29,7 @@ export const BackgroundChanger: FC<BackgroundChangerProps> = () => {
         initial="hidden"
         animate="enter"
         exit="exit"
-        transition={{ duration: 1 }}
+        transition={{ duration: 1.5 }}
         variants={bgAnimation}
         key={`bg-${device}-${activePage}`}
         className={styles.bg}

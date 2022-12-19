@@ -10,14 +10,6 @@
 	object-fit: contain;
 }
 
-.techImageMobile {
-	display: block;
-}
-
-.techImageDesktop {
-	display: none;
-}
-
 .techMain {
 	grid-area: techMain;
 
@@ -40,14 +32,7 @@
 		left: calc(2.5vw + 1rem);
 
 		width: calc(100% + 5vw);
-	}
-
-	.techImageMobile {
-		display: none;
-	}
-
-	.techImageDesktop {
-		display: block;
+		max-width: 60vh;
 	}
 
 	.techMain {

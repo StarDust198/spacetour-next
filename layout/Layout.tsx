@@ -15,7 +15,6 @@ import { pages, pageAnimation } from '../helpers/helpers';
 import { useRouter } from 'next/router';
 import { IAppContext } from '../interfaces/context.interface';
 import { useMediaQuery } from 'react-responsive';
-import Image from 'next/image';
 import { BackgroundChanger } from '../components';
 
 export const AppContext = createContext<IAppContext>({
@@ -46,10 +45,11 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
   const [device, setDevice] = useState<'mobile' | 'tablet' | 'desktop'>();
 
   useEffect(() => {
+    console.log(pages);
     if (isMobile) setDevice('mobile');
     if (isTablet) setDevice('tablet');
     if (isDesktop) setDevice('desktop');
-  });
+  }, []);
 
   const router = useRouter();
 

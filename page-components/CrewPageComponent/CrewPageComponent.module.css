@@ -51,7 +51,7 @@
 
 		align-self: end;
 
-		margin-bottom: 3rem;
+		margin-bottom: 5rem;
 	}
 
 	.crewImage {
@@ -60,5 +60,6 @@
 		align-self: end;
 
 		width: calc(100% + 5vw);
+		max-width: 75vh;
 	}
 }

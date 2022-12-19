@@ -45,5 +45,6 @@
 		align-self: start;
 
 		width: 80%;
+		max-width: 60vh;
 	}
 }

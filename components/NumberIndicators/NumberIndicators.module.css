@@ -5,6 +5,10 @@
 	justify-content: center;
 }
 
+.vertical {
+	flex-direction: column;
+}
+
 .numButton {
 	width: 2.5rem;
 	height: 2.5rem;
@@ -40,7 +44,6 @@
 
 @media (min-width: 1024px) {
 	.numList {
-		flex-direction: column;
 		justify-content: start;
 		gap: 2rem;
 	}

@@ -79,14 +79,14 @@ export const horizontalAnimation = {
 export const bothDirectionAnimation = {
   enter: (arr: [number, string]) => {
     return {
-      [arr[1]]: arr[0] < 0 ? '50%' : arr[0] > 0 ? '-50%' : 0,
+      [arr[1]]: arr[0] > 0 ? '50%' : arr[0] < 0 ? '-50%' : 0,
       opacity: 0,
       transition: transitionStyle,
     };
   },
   exit: (arr: [number, string]) => {
     return {
-      [arr[1]]: arr[0] > 0 ? '50%' : arr[0] < 0 ? '-50%' : 0,
+      [arr[1]]: arr[0] > 0 ? '-50%' : arr[0] < 0 ? '50%' : 0,
       opacity: 0,
       transition: transitionStyle,
     };
@@ -103,17 +103,14 @@ export const bgAnimation = {
   hidden: {
     opacity: 0,
     scale: 1.2,
-    filter: 'blur(10px)',
   },
   enter: {
     opacity: 1,
     scale: 1,
-    filter: 'blur(0px)',
   },
   exit: {
     opacity: 0,
     scale: 1.2,
-    filter: 'blur(10px)',
   },
 };
 
