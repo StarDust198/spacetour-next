@@ -19,6 +19,7 @@ export const BackgroundChanger: FC<BackgroundChangerProps> = () => {
           alt="background"
           quality={100}
           fill
+          priority={true}
         />
       );
   });
