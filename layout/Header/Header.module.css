@@ -1,11 +1,11 @@
 .header {
 	position: relative;
+	z-index: 5;
 
 	display: grid;
 	align-items: center;
 	padding-inline: 1.5rem;
 	grid-template-columns: 1fr auto;
-	z-index: 5;
 }
 
 .divider {

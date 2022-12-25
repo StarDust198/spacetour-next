@@ -25,6 +25,7 @@ export const UnderlineIndicators: FC<UnderlineIndicatorsProps> = ({
 
   useEffect(() => {
     constructUnderlineIndicators(selected);
+    focus.current = selected;
   }, [selected]);
 
   const changeTabFocus = (e: KeyboardEvent): void => {
@@ -60,7 +61,7 @@ export const UnderlineIndicators: FC<UnderlineIndicatorsProps> = ({
         aria-selected={selected === i}
         key={`${text}Indicator`}
         aria-controls={`${text}-tabpanel`}
-        tabIndex={focus.current === i ? 0 : -1}
+        tabIndex={selected === i ? 0 : -1}
         onKeyDown={changeTabFocus}
         id={`${text}-tab`}
       >

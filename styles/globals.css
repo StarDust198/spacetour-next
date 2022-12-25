@@ -1,8 +1,4 @@
 :root {
-	/* sizes */
-	--desk: 1024px;
-	--tab: 640px;
-
 	/* colors */
 	--clr-dark: 230 35% 7%;
 	--clr-light: 231 77% 90%;
@@ -15,9 +11,7 @@
 }
 
 /* -------------------------- */
-
 /* Reset                      */
-
 /* -------------------------- */
 a {
 	text-decoration: none;
@@ -74,11 +68,6 @@ body {
 	font-family: var(--ff-sans-normal);
 	font-size: var(--fs-20);
 	line-height: 1.75;
-
-	/* transition: background 1.5s ease-in-out;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed; */
 }
 
 input,
@@ -101,9 +90,7 @@ select {
 }
 
 /* -------------------------- */
-
 /* Utility classes            */
-
 /* -------------------------- */
 
 .dBlock {

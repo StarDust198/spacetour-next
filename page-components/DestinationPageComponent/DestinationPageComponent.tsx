@@ -3,14 +3,15 @@ import styles from './DestinationPageComponent.module.css';
 import { FC, useState } from 'react';
 import { Heading, PlanetBlock, UnderlineIndicators } from '../../components';
 import Image from 'next/image';
-import { fadeAnimation, horizontalAnimation } from '../../helpers/helpers';
-import { AnimatePresence, motion } from 'framer-motion';
+import { fadeAnimation, tabAnimation } from '../../helpers/helpers';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
   destinations,
 }) => {
   const [direction, setDirection] = useState<number>(0);
   const [planet, setPlanet] = useState<number>(0);
+  const shouldReduceMotion = useReducedMotion();
 
   const changePlanet = async (n: number) => {
     if (n === planet) return;
@@ -27,12 +28,12 @@ export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
       <AnimatePresence mode="wait">
         <motion.div
           className={styles.planetImage}
-          variants={horizontalAnimation}
+          variants={tabAnimation}
           animate="visible"
           initial="enter"
           exit="exit"
           key={`${planet}Image`}
-          custom={direction}
+          custom={{ direction, shouldReduceMotion }}
         >
           <Image
             alt={destinations[planet].title}
@@ -59,6 +60,7 @@ export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
           initial="hidden"
           exit="hidden"
           variants={fadeAnimation}
+          custom={{ shouldReduceMotion }}
           key={`${item.title}Block`}
           id={`${item.title}-tabpanel`}
           tabIndex={i === planet ? 0 : -1}

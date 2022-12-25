@@ -1,9 +1,9 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import { withLayout } from '../layout/Layout';
 import { TechPageComponent } from '../page-components';
-import axios from 'axios';
+// import axios from 'axios';
 import { TechItem } from '../interfaces/technology.interface';
+import techData from '../data/techData.json';
 
 const TechPage: NextPage<TechPageProps> = ({ technology }) => {
   return (
@@ -18,20 +18,19 @@ const TechPage: NextPage<TechPageProps> = ({ technology }) => {
 };
 
 export default TechPage;
-// export default withLayout(TechPage);
 
 export const getStaticProps: GetStaticProps<TechPageProps> = async () => {
-  const { data: technology } = await axios.get<TechItem[]>(
-    process.env.NEXT_PUBLIC_DOMAIN + '/api/technology',
-    {
-      headers: {
-        'Accept-Encoding': 'application/json',
-      },
-    }
-  );
+  // const { data: technology } = await axios.get<TechItem[]>(
+  //   process.env.NEXT_PUBLIC_DOMAIN + '/api/technology',
+  //   {
+  //     headers: {
+  //       'Accept-Encoding': 'application/json',
+  //     },
+  //   }
+  // );
   return {
     props: {
-      technology,
+      technology: techData,
     },
   };
 };

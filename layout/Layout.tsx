@@ -10,7 +10,7 @@ import {
 } from 'react';
 import cn from 'classnames';
 import { Header } from './Header/Header';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { pages, pageAnimation } from '../helpers/helpers';
 import { useRouter } from 'next/router';
 import { IAppContext } from '../interfaces/context.interface';
@@ -25,6 +25,7 @@ export const AppContext = createContext<IAppContext>({
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
   const [showSkip, setShowSkip] = useState<boolean>(false);
+  const shouldReduceMotion = useReducedMotion();
 
   const isMobile = useMediaQuery(
     { query: '(max-width: 639px)' },
@@ -45,7 +46,6 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
   const [device, setDevice] = useState<'mobile' | 'tablet' | 'desktop'>();
 
   useEffect(() => {
-    console.log(pages);
     if (isMobile) setDevice('mobile');
     if (isTablet) setDevice('tablet');
     if (isDesktop) setDevice('desktop');
@@ -56,7 +56,6 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
   const bodyRef = useRef<HTMLDivElement>(null);
 
   const onSkip = (e: KeyboardEvent): void => {
-    console.dir(bodyRef.current);
     if (e.code == 'Space' || e.code === 'Enter') {
       e.preventDefault();
       bodyRef.current?.focus();
@@ -90,7 +89,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
             initial="hidden"
             animate="enter"
             exit="exit"
-            transition={{ duration: 1 }}
+            transition={{ duration: shouldReduceMotion ? 0.001 : 1 }}
             variants={pageAnimation}
             ref={bodyRef}
             tabIndex={0}
@@ -110,21 +109,3 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
     </AppContext.Provider>
   );
 };
-
-// export const withLayout = <T extends Record<string, unknown> & IAppContext>(
-//   Component: FC<T>
-// ) => {
-//   const [device, setDevice] = useState<'mobile' | 'tablet' | 'desktop'>(
-//     'mobile'
-//   );
-
-//   return function withLayoutComponent(props: T): JSX.Element {
-//     return (
-//       <AppContext.Provider value={{ pages, device }}>
-//         <Layout>
-//           <Component {...props} />
-//         </Layout>
-//       </AppContext.Provider>
-//     );
-//   };
-// };

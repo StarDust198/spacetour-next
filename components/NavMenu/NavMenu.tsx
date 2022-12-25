@@ -8,7 +8,7 @@ import useResizeObserver from 'use-resize-observer';
 import { AppContext } from '../../layout/Layout';
 
 export const NavMenu: FC<NavMenuProps> = ({
-  position = 'visible',
+  position = 'hidden',
   className,
   ...props
 }) => {
@@ -45,7 +45,7 @@ export const NavMenu: FC<NavMenuProps> = ({
   return (
     <nav
       className={cn(styles.navMenu, className, {
-        [styles.hidden]: position === 'hidden',
+        [styles.visible]: position === 'visible',
       })}
       ref={navRef}
       {...props}

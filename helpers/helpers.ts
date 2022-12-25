@@ -1,3 +1,16 @@
+import { CustomTransition } from '../interfaces/animation.interface';
+
+const transitionStyle = {
+  duration: 1,
+  type: 'tween',
+};
+
+const reducedTransitionStyle = {
+  duration: 0.001,
+};
+
+const homeTransitionStyle = { duration: 1.5, ease: 'easeInOut', delay: 0.1 };
+
 export const pageAnimation = {
   hidden: {
     opacity: 0,
@@ -16,87 +29,71 @@ export const pageAnimation = {
   },
 };
 
-export const homeBlockAnimation = {
-  hidden: (custom: string) => ({
-    [custom]: -100,
+export const homeAnimation = {
+  hidden: ({
+    coord = 'y',
+    direction = 0,
+    shouldReduceMotion,
+  }: CustomTransition) => ({
+    [coord]: direction > 0 ? '50%' : '-50%',
     opacity: 0,
+    transition: shouldReduceMotion
+      ? reducedTransitionStyle
+      : homeTransitionStyle,
   }),
-  visible: (custom: string) => ({
-    [custom]: 0,
+  visible: ({ coord = 'y', shouldReduceMotion }: CustomTransition) => ({
+    [coord]: 0,
     opacity: 1,
+    transition: shouldReduceMotion
+      ? reducedTransitionStyle
+      : homeTransitionStyle,
   }),
-};
-
-export const homeButtonAnimation = {
-  hidden: (custom: string) => ({
-    [custom]: 100,
-    opacity: 0,
-  }),
-  visible: (custom: string) => ({
-    [custom]: 0,
-    opacity: 1,
-  }),
-};
-
-const transitionStyle = {
-  duration: 1,
-  type: 'tween',
 };
 
 export const fadeAnimation = {
-  hidden: {
+  hidden: ({ shouldReduceMotion }: CustomTransition) => ({
     filter: 'blur(10px)',
     scale: 1.15,
     opacity: 0,
-    transition: transitionStyle,
-  },
-  visible: {
+    transition: shouldReduceMotion ? reducedTransitionStyle : transitionStyle,
+  }),
+  visible: ({ shouldReduceMotion }: CustomTransition) => ({
     filter: 'blur(0px)',
     scale: 1,
     opacity: 1,
-    transition: { ...transitionStyle, delay: 0.5 },
-  },
+    transition: shouldReduceMotion
+      ? reducedTransitionStyle
+      : { ...transitionStyle, delay: 0.5 },
+  }),
 };
 
-export const horizontalAnimation = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? '50%' : direction < 0 ? '-50%' : 0,
-    opacity: 0,
-    transition: transitionStyle,
-  }),
-  exit: (direction: number) => ({
-    x: direction >= 0 ? '-50%' : '50%',
-    opacity: 0,
-    transition: transitionStyle,
-  }),
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: transitionStyle,
-  },
-};
-
-export const bothDirectionAnimation = {
-  enter: (arr: [number, string]) => {
+export const tabAnimation = {
+  enter: ({
+    coord = 'x',
+    direction = 0,
+    shouldReduceMotion,
+  }: CustomTransition) => {
     return {
-      [arr[1]]: arr[0] > 0 ? '50%' : arr[0] < 0 ? '-50%' : 0,
+      [coord]: direction > 0 ? '50%' : direction < 0 ? '-50%' : 0,
       opacity: 0,
-      transition: transitionStyle,
+      transition: shouldReduceMotion ? transitionStyle : reducedTransitionStyle,
     };
   },
-  exit: (arr: [number, string]) => {
-    return {
-      [arr[1]]: arr[0] > 0 ? '-50%' : arr[0] < 0 ? '50%' : 0,
-      opacity: 0,
-      transition: transitionStyle,
-    };
-  },
-  visible: {
+  exit: ({
+    coord = 'x',
+    direction = 0,
+    shouldReduceMotion,
+  }: CustomTransition) => ({
+    [coord]: direction > 0 ? '-50%' : direction < 0 ? '50%' : 0,
+    opacity: 0,
+    transition: shouldReduceMotion ? reducedTransitionStyle : transitionStyle,
+  }),
+  visible: ({ shouldReduceMotion }: CustomTransition) => ({
     x: 0,
     y: 0,
     opacity: 1,
-    transition: transitionStyle,
-  },
+    transition: shouldReduceMotion ? reducedTransitionStyle : transitionStyle,
+  }),
 };
 
 export const bgAnimation = {

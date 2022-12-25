@@ -2,7 +2,7 @@
 	position: fixed;
 	z-index: 10;
 	top: 0;
-	right: 0;
+	right: -65vw;
 	bottom: 0;
 
 	overflow: hidden;
@@ -16,8 +16,8 @@
 	background-color: hsl(var(--clr-dark) / 95%);
 }
 
-.hidden {
-	right: -65vw;
+.visible {
+	right: 0;
 }
 
 .navList {
@@ -28,33 +28,22 @@
 
 .navItem a {
 	display: block;
-	padding-block: 0.5rem;
+
+	cursor: pointer;
+	text-decoration: none;
 	letter-spacing: 2.7px;
 	text-transform: uppercase;
 
 	font-family: var(--ff-sans-cond);
 	font-size: 1rem;
 	line-height: 1.15;
-	cursor: pointer;
-	text-decoration: none;
-}
-
-.navItem a {
-	display: block;
 	padding-block: 0.5rem;
-	letter-spacing: 2.7px;
-	text-transform: uppercase;
-
-	font-family: var(--ff-sans-cond);
-	font-size: 1rem;
-	line-height: 1.15;
-	cursor: pointer;
-	text-decoration: none;
 }
 
 .navItem a:hover {
 	padding-bottom: calc(0.5rem - 3px);
-	border-bottom: 3px solid hsl(var(--clr-white)/ 0.5);
+
+	border-bottom: 3px solid hsl(var(--clr-white)/ 50%);
 }
 
 .navItem a span {
@@ -77,11 +66,13 @@
 @media (min-width: 640px) {
 	.navMenu {
 		position: relative;
+		right: 0;
 
 		width: unset;
-		transition: unset;
 		height: unset;
 		padding: 0 3rem;
+
+		transition: unset;
 	}
 
 	.navList {

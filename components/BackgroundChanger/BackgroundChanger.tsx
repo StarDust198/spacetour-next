@@ -1,14 +1,14 @@
 import { BackgroundChangerProps } from './BackgroundChanger.props';
 import styles from './BackgroundChanger.module.css';
 import { FC, useContext } from 'react';
-import cn from 'classnames';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { AppContext } from '../../layout/Layout';
 import { bgAnimation } from '../../helpers/helpers';
 
 export const BackgroundChanger: FC<BackgroundChangerProps> = () => {
   const { pages, device, activePage } = useContext(AppContext);
+  const shouldReduceMotion = useReducedMotion();
 
   const images = pages.map(({ title }) => {
     if (device)
@@ -29,7 +29,7 @@ export const BackgroundChanger: FC<BackgroundChangerProps> = () => {
         initial="hidden"
         animate="enter"
         exit="exit"
-        transition={{ duration: 1.5 }}
+        transition={{ duration: shouldReduceMotion ? 0.001 : 1.5 }}
         variants={bgAnimation}
         key={`bg-${device}-${activePage}`}
         className={styles.bg}

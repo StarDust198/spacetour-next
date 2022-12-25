@@ -31,7 +31,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
       <Divider className={styles.divider} />
       <NavMenu
         id="primary-nav"
-        position={device !== 'mobile' || menuOpen ? 'visible' : 'hidden'}
+        position={menuOpen ? 'visible' : 'hidden'}
         className={styles.menu}
       />
       <button

@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { withLayout } from '../layout/Layout';
 import { HomePageComponent } from '../page-components';
 
 const HomePage: NextPage = () => {
@@ -16,4 +15,3 @@ const HomePage: NextPage = () => {
 };
 
 export default HomePage;
-// export default withLayout(HomePage);

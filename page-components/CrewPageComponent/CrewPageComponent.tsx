@@ -3,12 +3,13 @@ import styles from './CrewPageComponent.module.css';
 import { FC, useState } from 'react';
 import { CrewBlock, Divider, DotIndicators, Heading } from '../../components';
 import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
-import { horizontalAnimation } from '../../helpers/helpers';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { tabAnimation } from '../../helpers/helpers';
 
 export const CrewPageComponent: FC<CrewPageComponentProps> = ({ crew }) => {
   const [direction, setDirection] = useState<number>(0);
   const [crewMember, setCrewMember] = useState<number>(0);
+  const shouldReduceMotion = useReducedMotion();
 
   const changeCrewMember = async (n: number) => {
     if (n === crewMember) return;
@@ -28,9 +29,9 @@ export const CrewPageComponent: FC<CrewPageComponentProps> = ({ crew }) => {
           animate="visible"
           initial="enter"
           exit="exit"
-          variants={horizontalAnimation}
+          variants={tabAnimation}
           key={`${crewMember}CrewImage`}
-          custom={direction}
+          custom={{ direction, shouldReduceMotion }}
         >
           <Image alt={crew[crewMember].title} src={crew[crewMember].img} fill />
           <Divider className={styles.divider} />
@@ -53,8 +54,8 @@ export const CrewPageComponent: FC<CrewPageComponentProps> = ({ crew }) => {
             animate="visible"
             initial="enter"
             exit="exit"
-            variants={horizontalAnimation}
-            custom={direction}
+            variants={tabAnimation}
+            custom={{ direction, shouldReduceMotion }}
             key={
               i === crewMember
                 ? `${member.rank}VisibleBlock`

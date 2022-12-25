@@ -3,8 +3,8 @@ import styles from './TechPageComponent.module.css';
 import { FC, useContext, useState } from 'react';
 import { Heading, NumberIndicators, TechBlock } from '../../components';
 import Image from 'next/image';
-import { bothDirectionAnimation } from '../../helpers/helpers';
-import { AnimatePresence, motion } from 'framer-motion';
+import { tabAnimation } from '../../helpers/helpers';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { AppContext } from '../../layout/Layout';
 
 export const TechPageComponent: FC<TechPageComponentProps> = ({
@@ -13,6 +13,7 @@ export const TechPageComponent: FC<TechPageComponentProps> = ({
   const [techItem, setTechItem] = useState<number>(0);
   const [direction, setDirection] = useState<number>(0);
   const { device } = useContext(AppContext);
+  const shouldReduceMotion = useReducedMotion();
 
   const changeTechItem = async (n: number) => {
     if (n === techItem) return;
@@ -34,9 +35,13 @@ export const TechPageComponent: FC<TechPageComponentProps> = ({
               animate="visible"
               initial="enter"
               exit="exit"
-              variants={bothDirectionAnimation}
+              variants={tabAnimation}
               key={`${techItem}TechImage`}
-              custom={[direction, device === 'desktop' ? 'y' : 'x']}
+              custom={{
+                direction,
+                coord: device === 'desktop' ? 'y' : 'x',
+                shouldReduceMotion,
+              }}
             >
               <Image
                 className={styles.techImage}
@@ -68,13 +73,17 @@ export const TechPageComponent: FC<TechPageComponentProps> = ({
                   animate="visible"
                   initial="enter"
                   exit="exit"
-                  variants={bothDirectionAnimation}
+                  variants={tabAnimation}
                   key={
                     i === techItem
                       ? `${item.title}VisibleBlock`
                       : `${item.title}HiddenBlock`
                   }
-                  custom={[direction, device === 'desktop' ? 'y' : 'x']}
+                  custom={{
+                    direction,
+                    coord: device === 'desktop' ? 'y' : 'x',
+                    shouldReduceMotion,
+                  }}
                   id={`${item.title}-tabpanel`}
                   tabIndex={0}
                   aria-labelledby={`${item.title}-tab`}

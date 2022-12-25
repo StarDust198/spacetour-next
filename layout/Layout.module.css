@@ -10,10 +10,10 @@
 }
 
 .gridContainer {
-	overflow-x: hidden;
-	display: grid;
-	align-content: start;
 	--row-gap: max(2rem, 5vh);
+	display: grid;
+	overflow: hidden;
+	align-content: start;
 
 	padding-bottom: 3rem;
 
@@ -102,13 +102,14 @@
 	.wrapper {
 		/* padding-top: 2.5rem; */
 		padding-top: 3vh;
+
 		/* gap: 4.75rem; */
 		gap: 5vh;
 	}
 
 	.gridContainer {
-		row-gap: 0;
 		--center-columns: repeat(2, minmax(0, 32rem));
+		row-gap: 0;
 		column-gap: 5vw;
 
 		text-align: left;
@@ -150,6 +151,7 @@
 			". pageTitle pageTitle ."
 			". techMain techImage .";
 		grid-template-rows: 5rem auto;
+
 		overflow-y: hidden;
 	}
 }

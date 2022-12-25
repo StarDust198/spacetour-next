@@ -2,12 +2,13 @@ import { HomePageComponentProps } from './HomePageComponent.props';
 import styles from './HomePageComponent.module.css';
 import { FC, useContext } from 'react';
 import { Heading, HomeButton, P } from '../../components';
-import { motion } from 'framer-motion';
-import { homeBlockAnimation, homeButtonAnimation } from '../../helpers/helpers';
+import { motion, useReducedMotion } from 'framer-motion';
+import { homeAnimation } from '../../helpers/helpers';
 import { AppContext } from '../../layout/Layout';
 
 export const HomePageComponent: FC<HomePageComponentProps> = () => {
   const { device } = useContext(AppContext);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <>
@@ -15,11 +16,14 @@ export const HomePageComponent: FC<HomePageComponentProps> = () => {
         <>
           <motion.div
             className={styles.homeBlock}
-            variants={homeBlockAnimation}
+            variants={homeAnimation}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.1 }}
-            custom={device === 'desktop' ? 'x' : 'y'}
+            custom={{
+              direction: -1,
+              coord: device === 'desktop' ? 'x' : 'y',
+              shouldReduceMotion,
+            }}
           >
             <Heading place="home" className={styles.homeTitle}>
               SO, YOU WANT TO TRAVEL TO<em>SPACE</em>
@@ -33,11 +37,14 @@ export const HomePageComponent: FC<HomePageComponentProps> = () => {
           </motion.div>
           <motion.div
             className={styles.homeButton}
-            variants={homeButtonAnimation}
+            variants={homeAnimation}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.5 }}
-            custom={device === 'desktop' ? 'x' : 'y'}
+            custom={{
+              direction: 1,
+              coord: device === 'desktop' ? 'x' : 'y',
+              shouldReduceMotion,
+            }}
           >
             <HomeButton />
           </motion.div>
