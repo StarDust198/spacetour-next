@@ -23,7 +23,7 @@ export const CrewPageComponent: FC<CrewPageComponentProps> = ({ crew }) => {
       <Heading place="nav" className="pageTitle">
         <span aria-hidden>02</span>meet your crew
       </Heading>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         <motion.div
           className={styles.crewImage}
           animate="visible"

@@ -11,11 +11,12 @@ import {
 import cn from 'classnames';
 import { Header } from './Header/Header';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { pages, pageAnimation } from '../helpers/helpers';
+import { pageAnimation } from '../helpers/helpers';
 import { useRouter } from 'next/router';
 import { IAppContext } from '../interfaces/context.interface';
 import { useMediaQuery } from 'react-responsive';
 import { BackgroundChanger } from '../components';
+import pages from '../data/pages.json';
 
 export const AppContext = createContext<IAppContext>({
   pages,
@@ -94,11 +95,11 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
             ref={bodyRef}
             tabIndex={0}
             className={cn(styles.gridContainer, {
-              [styles.gridContainerHome]: router.asPath === '/',
+              [styles.gridContainerHome]: router.asPath === pages[0].href,
               [styles.gridContainerDestination]:
-                router.asPath === '/destination',
-              [styles.gridContainerCrew]: router.asPath === '/crew',
-              [styles.gridContainerTech]: router.asPath === '/technology',
+                router.asPath === pages[1].href,
+              [styles.gridContainerCrew]: router.asPath === pages[2].href,
+              [styles.gridContainerTech]: router.asPath === pages[3].href,
             })}
           >
             {children}

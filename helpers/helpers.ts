@@ -63,7 +63,7 @@ export const fadeAnimation = {
     opacity: 1,
     transition: shouldReduceMotion
       ? reducedTransitionStyle
-      : { ...transitionStyle, delay: 0.5 },
+      : { ...transitionStyle, delay: 1.25 },
   }),
 };
 
@@ -110,42 +110,3 @@ export const bgAnimation = {
     scale: 1.2,
   },
 };
-
-export const pages = [
-  {
-    _id: 0,
-    title: 'home',
-    description: 'Homepage',
-    href: '/',
-    bg: '/assets/home/background-home-mobile.jpg',
-    bgTablet: '/assets/home/background-home-tablet.jpg',
-    bgDesktop: '/assets/home/background-home-desktop.jpg',
-  },
-  {
-    _id: 1,
-    title: 'destination',
-    description: 'Pick your destination',
-    href: '/destination',
-    bg: '/assets/destination/background-destination-mobile.jpg',
-    bgTablet: '/assets/destination/background-destination-tablet.jpg',
-    bgDesktop: '/assets/destination/background-destination-desktop.jpg',
-  },
-  {
-    _id: 2,
-    title: 'crew',
-    description: 'Meet your crew',
-    href: '/crew',
-    bg: '/assets/crew/background-crew-mobile.jpg',
-    bgTablet: '/assets/crew/background-crew-tablet.jpg',
-    bgDesktop: '/assets/crew/background-crew-desktop.jpg',
-  },
-  {
-    _id: 3,
-    title: 'technology',
-    description: 'SPACE LAUNCH 101',
-    href: '/technology',
-    bg: '/assets/technology/background-technology-mobile.jpg',
-    bgTablet: '/assets/technology/background-technology-tablet.jpg',
-    bgDesktop: '/assets/technology/background-technology-tablet.jpg',
-  },
-];

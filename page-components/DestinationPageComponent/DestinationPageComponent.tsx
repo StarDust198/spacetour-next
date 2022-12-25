@@ -25,7 +25,7 @@ export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
       <Heading place="nav" className="pageTitle">
         <span aria-hidden>01</span>pick your destination
       </Heading>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.div
           className={styles.planetImage}
           variants={tabAnimation}
@@ -57,7 +57,7 @@ export const DestinationPageComponent: FC<DestinationPageComponentProps> = ({
           distance={item.distance}
           time={item.time}
           animate={i === planet ? 'visible' : 'hidden'}
-          initial="hidden"
+          initial={i === planet ? 'visible' : 'hidden'}
           exit="hidden"
           variants={fadeAnimation}
           custom={{ shouldReduceMotion }}
