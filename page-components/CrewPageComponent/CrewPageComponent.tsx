@@ -36,14 +36,16 @@ export const CrewPageComponent: FC<CrewPageComponentProps> = ({ crew }) => {
           <Image alt={crew[crewMember].title} src={crew[crewMember].img} fill />
           <Divider className={styles.divider} />
         </motion.div>
+      </AnimatePresence>
 
-        <DotIndicators
-          className={styles.crewNav}
-          selected={crewMember}
-          setSelected={changeCrewMember}
-          values={crew.map((member) => member.rank)}
-        />
+      <DotIndicators
+        className={styles.crewNav}
+        selected={crewMember}
+        setSelected={changeCrewMember}
+        values={crew.map((member) => member.rank)}
+      />
 
+      <AnimatePresence mode="wait">
         {crew.map((member, i) => (
           <CrewBlock
             role="tabpanel"

@@ -26,7 +26,7 @@ My goals were to:
 
 ### Links
 
-- Live Site URL: [To be added soon](https://www.google.com/)
+- Live Site URL: [Space Tour on Vercel](https://spacetour-next.vercel.app//)
 
 ## My process
 
@@ -63,4 +63,4 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 ## Author
 
 - LinkedIn - [Sergey Zhilinskiy](https://www.linkedin.com/in/mars2030/)
-- Github - [My page](https://github.com/StarDust198), 2022
+- Github - [My page](https://github.com/StarDust198)
